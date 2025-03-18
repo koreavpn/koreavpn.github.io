@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN" class="no-js">
+
+<head>
+        <link rel="canonical" href="https://koreavpn.github.io/news/article-75981.htm" />
+    <meta charset="utf-8" />
+    <title>Bootstrap Blazor 实战 Menu 导航菜单使用</title>
+        <meta name="description" content="接上篇: B08. BootstrapBlazor实战 Menu 导航菜单使用(1) 实战BootstrapBlazorMenu 导航菜单的使用, 以及整合Freesql orm快速制作菜单项数据库后" />
+        <link rel="icon" href="/assets/website/img/bifrostv/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="韩国VPN 订阅机场节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://koreavpn.github.io/news/article-75981.htm" />
+    <meta property="og:site_name" content="韩国VPN 订阅机场节点官网" />
+    <meta property="og:title" content="Bootstrap Blazor 实战 Menu 导航菜单使用" />
+    <meta property="og:image" content="https://koreavpn.github.io/uploads/20240907-1/3a33e53034a271dd79404d802a2a40d4.webp" />
+        <meta property="og:release_date" content="2025-03-18T06:11:00" />
+    <meta property="og:updated_time" content="2025-03-18T06:11:00" />
+        <meta property="og:description" content="接上篇: B08. BootstrapBlazor实战 Menu 导航菜单使用(1) 实战BootstrapBlazorMenu 导航菜单的使用, 以及整合Freesql orm快速制作菜单项数据库后" />
+        
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Bootstrap Blazor 实战 Menu 导航菜单使用">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    
+    <!-- GLOBAL MANDATORY STYLES -->
+    <link href="http://fonts.googleapis.com/css?family=Hind:300,400,500,600,700" rel="stylesheet" type="text/css">
+    <link href="/assets/website/js/frontend/bifrostv/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/website/js/frontend/bifrostv/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!-- PAGE LEVEL PLUGIN STYLES -->
+    <link href="/assets/website/css/bifrostv/animate.css" rel="stylesheet">
+    <!-- THEME STYLES -->
+    <link href="/assets/website/css/bifrostv/layout.min.css" rel="stylesheet" type="text/css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3BM4QTX515"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-3BM4QTX515');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+
+<body id="body" data-spy="scroll" data-target=".header" data-page="detail">
+        <!--========== HEADER ==========-->
+    <header class="header navbar-fixed-top">
+        <!-- Navbar -->
+        <nav class="navbar" role="navigation">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="menu-container">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="toggle-icon"></span>
+                    </button>
+                    <!-- Logo -->
+                    <div class="logo">
+                                                <a class="logo-wrap" href="/">
+                            <span>韩国VPN</span>
+                        </a>
+                                            </div>
+                    <!-- End Logo -->
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse nav-collapse">
+                    <div class="menu-container">
+                        <ul class="nav navbar-nav navbar-nav-right">
+                                                        <li class="nav-item"><a class="nav-item-child nav-item-hover" href="/">首页</a></li>
+                                                        <li class="nav-item"><a class="nav-item-child nav-item-hover" href="/free-nodes/">免费节点</a></li>
+                                                        <li class="nav-item"><a class="nav-item-child nav-item-hover" href="/paid-subscribe/">推荐机场</a></li>
+                                                        <li class="nav-item"><a class="nav-item-child nav-item-hover" href="/news/">新闻资讯</a></li>
+                                                        <li class="nav-item"><a class="nav-item-child nav-item-hover" href="/client.htm">客户端</a></li>
+                                                    </ul>
+                    </div>
+                </div>
+                <!-- End Navbar Collapse -->
+            </div>
+        </nav>
+        <!-- Navbar -->
+    </header>
+    <!--========== END HEADER ==========-->
+    <!--========== SLIDER ==========-->
+    <div class="promo-block parallax-window" data-parallax="scroll" data-image-src="/assets/website/img/bifrostv/1920x1080/01.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="promo-block-divider">
+                        <h1 class="promo-block-title">Bootstrap Blazor 实战 Menu 导航菜单使用</h1>
+                        <p class="promo-block-text">
+                            <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!--// end row -->
+        </div>
+    </div>
+    <!--========== SLIDER ==========-->
+    <!--========== PAGE LAYOUT ==========-->
+    <!-- About -->
+    <div id="about">
+        <div class="container content-lg">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
+                  				  				  				<p>接上篇: B08. BootstrapBlazor实战 Menu 导航菜单使用(1)</p> <p><strong>实战BootstrapBlazorMenu 导航菜单的使用, 以及整合Freesql orm快速制作菜单项数据库后台维护页面</strong></p> <p><strong>BootstrapBlazor 是 Bootstrap 风格的 Blazor UI 组件库 基于 Bootstrap 样式库精心打造，并且额外增加了 100 多种常用的组件，为您快速开发项目带来非一般的感觉</strong></p> <p><strong>demo演示的是Sqlite驱动,FreeSql支持多种数据库，MySql/SqlServer/PostgreSQL/Oracle/Sqlite/Firebird/达梦/神通/人大金仓/翰高/华为GaussDB/MsAccess</strong></p> <h2 id="3项目模板">3.项目模板</h2> <p>节省时间,直接使用 Bootstrap Blazor App 模板快速搭建项目</p> <p>传送门:<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.blazor.zone/template"  target="_blank" rel="nofollow">https://www.blazor.zone/template</a></p> <h3 id="31-安装项目模板">3.1. 安装项目模板</h3> <p><code>dotnet new -i Bootstrap.Blazor.Templates</code></p> <h3 id="32-创建工程">3.2. 创建工程</h3> <p><code>dotnet new bbapp</code></p> <h2 id="4-本次演示使用工程名字-b08menu-命令如下">4. 本次演示使用工程名字 b08Menu ,命令如下</h2> <pre><code>dotnet new bbapp -o b08Menu dotnet add b08Menu/BootstrapBlazorApp.Shared package FreeSql.Provider.Sqlite dotnet add b08Menu/BootstrapBlazorApp.Shared package Densen.FreeSql.Extensions.BootstrapBlazor dotnet sln add b08Menu/BootstrapBlazorApp.Server/BootstrapBlazorApp.Server.csproj dotnet sln add b08Menu/BootstrapBlazorApp.Shared/BootstrapBlazorApp.Shared.csproj dotnet sln add b08Menu/BootstrapBlazorApp.WebAssembly/BootstrapBlazorApp.WebAssembly.csproj</code></pre> <p><em>注:由于模板使用了共享库,双出<code>Server</code>和<code>WebAssembly</code>工程,我们这里只使用<code>Server</code>工程做演示.</em></p> <h2 id="5-数据服务">5. 数据服务</h2> <p>添加FreeSql服务到<code>BootstrapBlazorApp.Server/Program.cs</code> 在 builder.Services.AddBootstrapBlazor(); 之前加入</p> <pre><code>builder.Services.AddFreeSql(option =&gt; {     //demo演示的是Sqlite驱动,FreeSql支持多种数据库，MySql/SqlServer/PostgreSQL/Oracle/Sqlite/Firebird/达梦/神通/人大金仓/翰高/华为GaussDB/MsAccess     option.UseConnectionString(FreeSql.DataType.Sqlite, "Data Source=test.db;")  //也可以写到配置文件中 #if DEBUG          //开发环境:自动同步实体          .UseAutoSyncStructure(true)          .UseNoneCommandParameter(true)          //调试sql语句输出          .UseMonitorCommand(cmd =&gt; System.Console.WriteLine(cmd.CommandText)) #endif     ; });</code></pre> <p>传送门:<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/densen2014/Blazor100/wiki/B03.-BootstrapBlazor%E5%AE%9E%E6%88%98-10%E5%88%86%E9%92%9F%E7%BC%96%E5%86%99%E6%95%B0%E6%8D%AE%E5%BA%93%E7%BB%B4%E6%8A%A4%E9%A1%B9%E7%9B%AE"  target="_blank" rel="nofollow">https://github.com/densen2014/Blazor100/wiki/B03.-BootstrapBlazor实战-10分钟编写数据库维护项目</a></p> <h2 id="6-menu数据实体类">6. Menu数据实体类</h2> <p>使用FreeSql的父子导航属性处理树形分类<br /> 传送门:<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/densen2014/Blazor100/wiki/B05.-BootstrapBlazor%E5%AE%9E%E6%88%98-Tree%E6%A0%91%E5%BD%A2%E6%8E%A7%E4%BB%B6%E4%BD%BF%E7%94%A8(2)"  target="_blank" rel="nofollow">https://github.com/densen2014/Blazor100/wiki/B05.-BootstrapBlazor实战-Tree树形控件使用(2)</a></p> <p>新建类文件 Data/WebPages.cs</p> <pre><code>/// &lt;summary&gt; /// 页面 /// &lt;/summary&gt; [AutoGenerateClass(Searchable = true, Filterable = true, Sortable = true)] public class WebPages {     public WebPages() { }      public WebPages(string PageName,  string? Url = null, string? Icon = null, string? Code = "0", List&lt;WebPages&gt;? Childs = null)     {         this.PageName = PageName;         this.Url = Url ?? $"/{PageName}";         this.Icon = Icon;         this.Code = Code;         this.Childs = Childs;     }      /// &lt;summary&gt;     ///代码     /// &lt;/summary&gt;     [DisplayName("代码")]     [Column(IsPrimary = true)]     [AutoGenerateColumn(DefaultSort = true, DefaultSortOrder = SortOrder.Asc)]     public string? Code { get; set; }      /// &lt;summary&gt;     ///父级代码     /// &lt;/summary&gt;     [DisplayName("父级代码")]     [Column]     public string? ParentCode { get; set; }      [Navigate(nameof(ParentCode))]     [AutoGenerateColumn(Ignore = true)]     public WebPages? Parent { get; set; }      [Navigate(nameof(ParentCode))]     [AutoGenerateColumn(Ignore = true)]     public List&lt;WebPages&gt;? Childs { get; set; }      /// &lt;summary&gt;     ///页面名称     /// &lt;/summary&gt;     [Required(ErrorMessage = "{0}不能为空")]     [DisplayName("页面名称")]     public string? PageName { get; set; }      /// &lt;summary&gt;     ///Icon     /// &lt;/summary&gt;     [DisplayName("Icon")]     [AutoGenerateColumn(Visible = false)]     public string? Icon { get; set; }      /// &lt;summary&gt;     ///Url     /// &lt;/summary&gt;     [Required(ErrorMessage = "{0}不能为空")]     [DisplayName("Url")]     [AutoGenerateColumn(Visible = false)]     public string? Url { get; set; }       /// &lt;summary&gt;     /// 隐藏     /// &lt;/summary&gt;     [DisplayName ("隐藏")]     public bool Hide { get; set; }   }</code></pre> <h2 id="7-扩展工具">7. 扩展工具</h2> <p><em>写文章的时候这个方法已经pr进BootstrapBlazor库,可能读者们看到的时候已经内置次方法了.如果重复,自行跳过这步.</em></p> <pre><code>public static class Utility {      /// &lt;summary&gt;     /// 菜单树状数据层次化方法     /// &lt;/summary&gt;     /// &lt;param name="items"&gt;数据集合&lt;/param&gt;     /// &lt;param name="parentId"&gt;父级节点&lt;/param&gt;     public static IEnumerable&lt;MenuItem&gt; CascadingMenu(this IEnumerable&lt;MenuItem&gt; items, string? parentId = null) =&gt; items.Where(i =&gt; i.ParentId == parentId).Select(i =&gt;     {         i.Items = CascadingMenu(items, i.Id).ToList();         return i;     }); }</code></pre> <h2 id="8-菜单界面">8. 菜单界面</h2> <p>找到<code>BootstrapBlazorApp.Shared/Shared/MainLayout.razor</code>文件,展开三角符号,打开<code>MainLayout.razor.cs</code>文件编辑</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/fe5ec3d561381b9b1331463a24d401cf.jpg" alt="Bootstrap Blazor 实战 Menu 导航菜单使用"></p> <p>注入FreeSql</p> <pre><code>    [Inject]     [NotNull]     IFreeSql? fsql { get; set; }</code></pre> <p>Menus 初始化保存到数据库</p> <pre><code>using Microsoft.AspNetCore.Components; using System.Diagnostics.CodeAnalysis; using BootstrapBlazorApp.Shared.Data;  //private List&lt;MenuItem&gt;? Menus { get; set; } private List&lt;MenuItem&gt;? Menus { get; set; } = new List&lt;MenuItem&gt;();     /// &lt;summary&gt;     /// OnInitialized 方法     /// &lt;/summary&gt;     protected override void OnInitialized()     {         base.OnInitialized();          //Menus = GetIconSideMenuItems();     }      protected override void OnAfterRender(bool firstRender)     {         if (firstRender)         {             if (fsql.Select&lt;WebPages&gt;().Count() == 0)             {                 var pages = new List&lt;WebPages&gt;(){                     new WebPages("首页","/","fa fa-home","001") ,                     new WebPages("数据","","fa fa-fw fa-database","002",                         new List&lt;WebPages&gt;(new[] {                             new WebPages("FetchData","fetchdata","fa fa-fw fa-database","002_001") ,                             new WebPages( "Counter","counter","fa fa-fw fa-check-square-o","002_002")  ,                             new WebPages("后台管理","admins","fa fa-gears","002_003") ,                         })) ,                     new WebPages("Table","table","fa fa-fw fa-table","004")  ,                     new WebPages("花名册","users","fa fa-fw fa-users","005")                 };                  var repo = fsql.GetRepository&lt;WebPages&gt;();//仓库类                 repo.DbContextOptions.EnableAddOrUpdateNavigateList = true; //开启一对多，多对多级联保存功能                 repo.Insert(pages);              }             Menus =  fsql.Select&lt;WebPages&gt;().OrderBy(a =&gt; a.Code)                         .LeftJoin(d =&gt; d.ParentCode == d.Parent!.Code)                         .ToList(a =&gt; new MenuItem()                         {                             Text = a.PageName,                             Id = a.Code,                             Url = a.Url,                             ParentId = a.ParentCode,                             Icon = a.Icon                         }).CascadingMenu().ToList();             // 算法获取属性结构数据 .CascadingMenu().ToList()             StateHasChanged();         }     }</code></pre> <p>到这一步,大家肯定迫不及待要运行一下了,来吧,少年,F5</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/37357af12d04f5057b66f6629a9602e3.jpg" alt="Bootstrap Blazor 实战 Menu 导航菜单使用"></p> <h2 id="9-菜单管理界面">9. 菜单管理界面</h2> <p>使用<code>Densen.FreeSql.Extensions.BootstrapBlazor</code>库的数据库服务直接表格编辑菜单数据库表格.</p> <p>先注销模板工程自带演示服务,<code>BootstrapBlazorApp.Server/Program.cs</code> 注销<code>builder.Services.AddTableDemoDataService();</code></p> <pre><code>// 增加 Table 数据服务操作类 //builder.Services.AddTableDemoDataService();</code></pre> <p>新建<code>BootstrapBlazorApp.Shared/Pages/Admins.razor</code>文件</p> <pre><code>@page "/admins" @attribute [TabItemOption(Text = "菜单管理")] &lt;PageTitle&gt;菜单管理&lt;/PageTitle&gt;  &lt;div class="table-users scroll"&gt;     &lt;Table TItem="WebPages"            IsFixedHeader="true"            IsPagination="true"            IsStriped="true"            AutoGenerateColumns="true"            ShowSearch="true"            ShowToolbar="true"            ShowExtendButtons="true"            DoubleClickToEdit=true            ShowColumnList=true            ShowCardView=true&gt;     &lt;/Table&gt; &lt;/div&gt;</code></pre> <p>来吧,少年,F5</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/347cb7a5c33bb17c2d76133adb29f047.jpg" alt="Bootstrap Blazor 实战 Menu 导航菜单使用"></p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/2c3cd6c10435cf00a99b5735a597a256.jpg" alt="Bootstrap Blazor 实战 Menu 导航菜单使用"></p> <p>是不是很有成就感,你怎么这么优秀呢? 哈哈哈.</p> <h2 id="10添加菜单">10.添加菜单</h2> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/e84030bd84e7f8c883d9b5c53252a76f.jpg" alt="Bootstrap Blazor 实战 Menu 导航菜单使用"></p> <p>刷新页面</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/981e98176481e8b85e87569e8da8a878.jpg" alt="Bootstrap Blazor 实战 Menu 导航菜单使用"></p> <p>少年, 如期而来!</p> <h2 id="11下一篇大概是-layout-组件">11.下一篇大概是: Layout 组件</h2> <h4 id="项目源码">项目源码</h4> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/densen2014/Blazor100"  target="_blank" rel="nofollow">Github</a> |<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://gitee.com/densen2014/Blazor100"  target="_blank" rel="nofollow">Gitee</a></p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-75313.htm">疫苗的种类包括动物疫苗吗对吗（疫苗的种类包括动物疫苗吗对吗对吗）</a></p>
+                                        <p>下一个：<a href="/news/article-75982.htm">动物医院名字大全集图片（动物医院牌匾）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-71308.htm" title="python导入numpy函数库">python导入numpy函数库</a></li>
+                        <li class="py-2"><a href="/news/article-66176.htm" title="动物疫苗市场促销方案怎么写（2021年动物疫苗采购）">动物疫苗市场促销方案怎么写（2021年动物疫苗采购）</a></li>
+                        <li class="py-2"><a href="/news/article-75982.htm" title="动物医院名字大全集图片（动物医院牌匾）">动物医院名字大全集图片（动物医院牌匾）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-1-free-node-subscribe.htm" title="韩国VPN | 3月1日20.2M/S|免费Clash/V2ray/Shadowrocket/SSR免费节点订阅分享">韩国VPN | 3月1日20.2M/S|免费Clash/V2ray/Shadowrocket/SSR免费节点订阅分享</a></li>
+                        <li class="py-2"><a href="/news/article-69995.htm" title="动物接种的途径有哪些分别适用于何种病毒（动物接种要点）">动物接种的途径有哪些分别适用于何种病毒（动物接种要点）</a></li>
+                        <li class="py-2"><a href="/news/article-71969.htm" title="青口如何清洗图解(青口怎么洗才干净)">青口如何清洗图解(青口怎么洗才干净)</a></li>
+                        <li class="py-2"><a href="/news/article-69994.htm" title="Java 面试之线程与锁">Java 面试之线程与锁</a></li>
+                        <li class="py-2"><a href="/news/article-64930.htm" title="狗狗领养协议书范本免费模板大全图片（狗狗领养协议书范本免费模板大全图片）">狗狗领养协议书范本免费模板大全图片（狗狗领养协议书范本免费模板大全图片）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-2-free-node-subscribe.htm" title="韩国VPN | 3月2日22.8M/S|免费SSR/Clash/Shadowrocket/V2ray免费节点订阅分享">韩国VPN | 3月2日22.8M/S|免费SSR/Clash/Shadowrocket/V2ray免费节点订阅分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-9-free-v2ray-subscribe.htm" title="韩国VPN | 3月9日18.7M/S|免费Shadowrocket/SSR/V2ray/Clash免费节点订阅分享">韩国VPN | 3月9日18.7M/S|免费Shadowrocket/SSR/V2ray/Clash免费节点订阅分享</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">54</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">9</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End About -->
+    <!--========== END PAGE LAYOUT ==========-->
+        <!--========== FOOTER ==========-->
+    <footer class="footer">
+        <div class="content container">
+            <div class="row">
+                <div class="col-xs-12 text-center">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                    <p class="margin-b-0">
+                        <a href="/">韩国VPN 订阅机场节点官网</a> 版权所有
+                        <br />
+                        Powered by WordPress
+                    </p>
+                </div>
+            </div>
+            <!--// end row -->
+        </div>
+    </footer>
+    <!--========== END FOOTER ==========-->
+    <!-- Back To Top -->
+    <a href="javascript:void(0);" class="js-back-to-top back-to-top">Top</a>
+    <!-- JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+    <!-- CORE PLUGINS -->
+    <script src="/assets/website/js/frontend/bifrostv/jquery.min.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/bifrostv/jquery-migrate.min.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/bifrostv/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <!-- PAGE LEVEL PLUGINS -->
+    <script src="/assets/website/js/frontend/bifrostv/jquery.easing.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/bifrostv/jquery.back-to-top.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/bifrostv/jquery.smooth-scroll.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/bifrostv/jquery.wow.min.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/bifrostv/jquery.parallax.min.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/bifrostv/jquery.appear.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/bifrostv/masonry/jquery.masonry.pkgd.min.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/bifrostv/masonry/imagesloaded.pkgd.min.js" type="text/javascript"></script>
+    <!-- PAGE LEVEL SCRIPTS -->
+    <script src="/assets/website/js/frontend/bifrostv/layout.min.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/bifrostv/components/progress-bar.min.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/bifrostv/components/masonry.min.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/bifrostv/components/wow.min.js" type="text/javascript"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+
+</html>
