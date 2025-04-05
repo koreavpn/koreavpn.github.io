@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN" class="no-js">
+
+<head>
+        <link rel="canonical" href="https://koreavpn.github.io/news/article-87905.htm" />
+    <meta charset="utf-8" />
+    <title>如何在 Java 中实现无向图</title>
+        <meta name="description" content="图的定义 一个图是由点集\(V=\{v_i\}\) 和\(V\) 中元素的无序对的一个集合\(E=\{e_k\}\) 所构成的二元组，记为\(G=(V,E)\)，\(V\) 中的元素\(v_i\) 叫" />
+        <link rel="icon" href="/assets/website/img/bifrostv/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="韩国VPN 订阅机场节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://koreavpn.github.io/news/article-87905.htm" />
+    <meta property="og:site_name" content="韩国VPN 订阅机场节点官网" />
+    <meta property="og:title" content="如何在 Java 中实现无向图" />
+    <meta property="og:image" content="https://koreavpn.github.io/uploads/20240907-1/3f67644482dd40e002100b750ae5ab77.webp" />
+        <meta property="og:release_date" content="2025-04-04T09:04:19" />
+    <meta property="og:updated_time" content="2025-04-04T09:04:19" />
+        <meta property="og:description" content="图的定义 一个图是由点集\(V=\{v_i\}\) 和\(V\) 中元素的无序对的一个集合\(E=\{e_k\}\) 所构成的二元组，记为\(G=(V,E)\)，\(V\) 中的元素\(v_i\) 叫" />
+        
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="如何在 Java 中实现无向图">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    
+    <!-- GLOBAL MANDATORY STYLES -->
+    <link href="http://fonts.googleapis.com/css?family=Hind:300,400,500,600,700" rel="stylesheet" type="text/css">
+    <link href="/assets/website/js/frontend/bifrostv/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/website/js/frontend/bifrostv/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!-- PAGE LEVEL PLUGIN STYLES -->
+    <link href="/assets/website/css/bifrostv/animate.css" rel="stylesheet">
+    <!-- THEME STYLES -->
+    <link href="/assets/website/css/bifrostv/layout.min.css" rel="stylesheet" type="text/css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3BM4QTX515"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-3BM4QTX515');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+
+<body id="body" data-spy="scroll" data-target=".header" data-page="detail">
+        <!--========== HEADER ==========-->
+    <header class="header navbar-fixed-top">
+        <!-- Navbar -->
+        <nav class="navbar" role="navigation">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="menu-container">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="toggle-icon"></span>
+                    </button>
+                    <!-- Logo -->
+                    <div class="logo">
+                                                <a class="logo-wrap" href="/">
+                            <span>韩国VPN</span>
+                        </a>
+                                            </div>
+                    <!-- End Logo -->
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse nav-collapse">
+                    <div class="menu-container">
+                        <ul class="nav navbar-nav navbar-nav-right">
+                                                        <li class="nav-item"><a class="nav-item-child nav-item-hover" href="/">首页</a></li>
+                                                        <li class="nav-item"><a class="nav-item-child nav-item-hover" href="/free-nodes/">免费节点</a></li>
+                                                        <li class="nav-item"><a class="nav-item-child nav-item-hover" href="/paid-subscribe/">推荐机场</a></li>
+                                                        <li class="nav-item"><a class="nav-item-child nav-item-hover" href="/news/">新闻资讯</a></li>
+                                                        <li class="nav-item"><a class="nav-item-child nav-item-hover" href="/client.htm">客户端</a></li>
+                                                    </ul>
+                    </div>
+                </div>
+                <!-- End Navbar Collapse -->
+            </div>
+        </nav>
+        <!-- Navbar -->
+    </header>
+    <!--========== END HEADER ==========-->
+    <!--========== SLIDER ==========-->
+    <div class="promo-block parallax-window" data-parallax="scroll" data-image-src="/assets/website/img/bifrostv/1920x1080/01.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="promo-block-divider">
+                        <h1 class="promo-block-title">如何在 Java 中实现无向图</h1>
+                        <p class="promo-block-text">
+                            <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!--// end row -->
+        </div>
+    </div>
+    <!--========== SLIDER ==========-->
+    <!--========== PAGE LAYOUT ==========-->
+    <!-- About -->
+    <div id="about">
+        <div class="container content-lg">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
+                  				  				  				</h1> <h2 id="图的定义">图的定义</h2> <p>一个图是由点集<span class="math inline">\(V=\{v_i\}\)</span> 和<span class="math inline">\(V\)</span> 中元素的无序对的一个集合<span class="math inline">\(E=\{e_k\}\)</span> 所构成的二元组，记为<span class="math inline">\(G=(V,E)\)</span>，<span class="math inline">\(V\)</span> 中的元素<span class="math inline">\(v_i\)</span> 叫做顶点，<span class="math inline">\(E\)</span> 中的元素<span class="math inline">\(e_k\)</span> 叫做边。</p> <p>对于<span class="math inline">\(V\)</span> 中的两个点<span class="math inline">\(u, v\)</span>，如果边<span class="math inline">\((u, v)\)</span> 属于<span class="math inline">\(E\)</span>，则称<span class="math inline">\(u,v\)</span> 两点相邻，<span class="math inline">\(u,v\)</span> 称为边<span class="math inline">\((u, v)\)</span> 的端点。</p> <p>我们可以用<span class="math inline">\(m(G)=|E|\)</span> 表示图<span class="math inline">\(G\)</span> 中的边数，用<span class="math inline">\(n(G)=|V|\)</span> 表示图<span class="math inline">\(G\)</span> 中的顶点个数。</p> <h2 id="无向图的定义">无向图的定义</h2> <p>对于<span class="math inline">\(E\)</span> 中的任意一条边<span class="math inline">\((v_i, v_j)\)</span>，如果边<span class="math inline">\((v_i, v_j)\)</span> 端点无序，则它是无向边，此时图<span class="math inline">\(G\)</span> 称为无向图。无向图是最简单的图模型，下图显示了同一幅无向图，顶点使用圆圈表示，边则是顶点之间的连线，没有箭头（图片来自于《算法第四版》）：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/c9a35e5e4ad378373d9a917ca9e671b4.jpg" alt="如何在 Java 中实现无向图"></p> </h1> <p>对于一幅无向图，我们关心图的顶点数、边数、每个顶点的相邻顶点和边的添加操作，所以接口如下所示：</p> <pre><code class="language-java">package com.zhiyiyo.graph;  /**  * 无向图  */ public interface Graph {     /**      * 返回图中的顶点数      */     int V();      /**      * 返回图中的边数      */     int E();      /**      * 向图中添加一条边      * @param v 顶点 v      * @param w 顶点 w      */     void addEdge(int v, int w);      /**      * 返回所有相邻顶点      * @param v 顶点 v      * @return 所有相邻顶点      */     Iterable&lt;Integer&gt; adj(int v); }</code></pre> </h1> <h2 id="邻接矩阵">邻接矩阵</h2> <p>用矩阵表示图对研究图的性质及应用常常是比较方便的，对于各种图有各种矩阵表示方式，比如权矩阵和邻接矩阵，这里我们只关注邻接矩阵。它的定义为：</p> <p>对于图<span class="math inline">\(G=(V,E)\)</span>，<span class="math inline">\(|V|=n\)</span>，构造一个矩阵<span class="math inline">\(\boldsymbol A=(a_{ij})_{n\times n}\)</span>，其中：</p> <div class="math display">\[a_{ij} = \left\{<br /> \begin{aligned}<br /> 1&amp; \quad (v_i,v_j)\in E\\<br /> 0&amp; \quad 其他<br /> \end{aligned}<br /> \right.<br /> \]</div> <p>则称矩阵<span class="math inline">\(\boldsymbol{A}\)</span> 为图<span class="math inline">\(G\)</span> 的邻接矩阵。</p> <p>由定义可知，我们可以使用一个二维的布尔数组<code>A</code> 来实现邻接矩阵，当<code>A[i][j] = true</code> 时说明顶点<code>i</code> 和<code>j</code> 相邻。</p> <p>对于<span class="math inline">\(n\)</span> 个顶点的图<span class="math inline">\(G\)</span>，邻接矩阵需要消耗的空间为<span class="math inline">\(n^2\)</span> 个布尔值的大小，对于稀疏图来说会造成很大的浪费，当顶点数很大时所消耗的空间会是个天文数字。同时当图比较特殊，存在自环以及平行边时，邻接矩阵的表示方式是无能为力的。《算法》中给出了存在这两种情况的图：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/3fabdac6c7dcc13b5f1bfcb3a932b3c4.jpg" alt="如何在 Java 中实现无向图"></p> <h2 id="边的数组">边的数组</h2> <p>对于无向图，我们可以实现一个类<code>Edge</code>，里面只用两个实例变量用来存储两个顶点<span class="math inline">\(u\)</span> 和<span class="math inline">\(v\)</span>，接着在一个数组里面保存所有<code>Edge</code> 即可。这样做有一个很大的问题，就是在获取顶点<span class="math inline">\(v\)</span> 的所有相邻顶点时必须遍历整个数组才能得到，时间复杂度是<span class="math inline">\(O(|E|)\)</span>，由于获取相邻顶点是很常用的操作，所以这种表示方式也不太行。</p> <h2 id="邻接表数组">邻接表数组</h2> <p>如果我们把顶点表示为一个整数，取值范围为<span class="math inline">\(0\sim |V|-1\)</span>，那么就可以用一个长度为<span class="math inline">\(|V|\)</span> 的数组的索引表示每一个顶点，然后将每一个数组元素设置为一个链表，上面挂载着索引所代表的的顶点相邻的其他顶点。图一所示的无向图可以用下图所示的邻接表数组表示出来：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/617efda5ab77bb4bde3d7492272948c9.jpg" alt="如何在 Java 中实现无向图"></p> <p>使用邻接表实现无向图的代码如下所示，由于邻接表数组中的每个链表都会保存与顶点相邻的顶点，所以将边添加到图中时需要对数组中的两个链表进行添加节点的操作：</p> <pre><code class="language-java">package com.zhiyiyo.graph;  import com.zhiyiyo.collection.stack.LinkStack;  /**  * 使用邻接表实现的无向图  */ public class LinkGraph implements Graph {     private final int V;     private int E;     private LinkStack&lt;Integer&gt;[] adj;      public LinkGraph(int V) {         this.V = V;         adj = (LinkStack&lt;Integer&gt;[]) new LinkStack[V];         for (int i = 0; i &lt; V; i++) {             adj[i] = new LinkStack&lt;&gt;();         }     }      @Override     public int V() {         return V;     }      @Override     public int E() {         return E;     }      @Override     public void addEdge(int v, int w) {         adj[v].push(w);         adj[w].push(v);         E++;     }      @Override     public Iterable&lt;Integer&gt; adj(int v) {         return adj[v];     } }</code></pre> <p>这里用到的栈代码如下所示，栈的实现不是这篇博客的重点，所以这里不做过多解释：</p> <pre><code class="language-java">package com.zhiyiyo.collection.stack;  import java.util.EmptyStackException; import java.util.Iterator;  /**  * 使用链表实现的堆栈  */ public class LinkStack&lt;T&gt; {     private int N;     private Node first;      public void push(T item) {         first = new Node(item, first);         N++;     }      public T pop() throws EmptyStackException {         if (N == 0) {             throw new EmptyStackException();         }          T item = first.item;         first = first.next;         N--;         return item;     }      public int size() {         return N;     }      public boolean isEmpty() {         return N == 0;     }      public Iterator&lt;T&gt; iterator() {         return new ReverseIterator();     }      private class Node {         T item;         Node next;          public Node() {         }          public Node(T item, Node next) {             this.item = item;             this.next = next;         }     }       private class ReverseIterator implements Iterator&lt;T&gt; {         private Node node = first;          @Override         public boolean hasNext() {             return node != null;         }          @Override         public T next() {             T item = node.item;             node = node.next;             return item;         }          @Override         public void remove() {         }     } }</code></pre> </h1> <p>给定下面一幅图，现在要求找到每个顶点到顶点 0 的路径，该如何实现？或者简单点，给定顶点 0 和 4，要求判断从顶点 0 开始走，能否到达顶点 4，该如何实现？这就要用到两种图的遍历方式：深度优先搜索和广度优先搜索。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/2b5c1ebd00a055c6e4fdc8ec0995b678.jpg" alt="如何在 Java 中实现无向图"></p> <p>在介绍这两种遍历方式之前，先给出解决上述问题需要实现的 API：</p> <pre><code class="language-java">package com.zhiyiyo.graph;  public interface Search {     /**      * 起点 s 和 顶点 v 之间是否连通      * @param v 顶点 v      * @return 是否连通      */     boolean connected(int v);      /**      * 返回与顶点 s 相连通的顶点个数（包括 s）      */     int count();      /**      * 是否存在从起点 s 到顶点 v 的路径      * @param v 顶点 v      * @return 是否存在路径      */     boolean hasPathTo(int v);      /**      * 从起点 s 到顶点 v 的路径，不存在则返回 null      * @param v 顶点 v      * @return 路径      */     Iterable&lt;Integer&gt; pathTo(int v); }</code></pre> <h2 id="深度优先搜索">深度优先搜索</h2> <p>深度优先搜索的思想类似树的先序遍历。我们从顶点 0 开始，将它的相邻顶点 2、1、5 加到栈中。接着弹出栈顶的顶点 2，将它相邻的顶点 0、1、3、4 添加到栈中，但是写到这你就会发现一个问题：顶点 0 和 1明明已经在栈中了，如果还把他们加到栈中，那这个栈岂不是永远不会变回空。所以还需要维护一个数组<code>boolean[] marked</code>，当我们将一个顶点<code>i</code> 添加到栈中时，就将<code>marked[i]</code> 置为<code>true</code>，这样下次要想将顶点<code>i</code> 加入栈中时，就得先检查一个<code>marked[i]</code> 是否为<code>true</code>，如果为<code>true</code> 就不用再添加了。重复栈顶节点的弹出和节点相邻节点的入栈操作，直到栈为空，我们就完成了顶点 0 可达的所有顶点的遍历。</p> <p>为了记录每个顶点到顶点 0 的路径，我们还需要一个数组<code>int[] edgeTo</code>。每当我们访问到顶点<code>u</code> 并将其一个相邻顶点<code>i</code> 压入栈中时，就将<code>edgeTo[i]</code> 设置为<code>u</code>，说明要想从顶点<code>i</code> 到达顶点 0，需要先回退顶点<code>u</code>，接着再从顶点<code>edgeTo[u]</code> 处获取下一步要回退的顶点直至找到顶点 0。</p> <pre><code class="language-java">package com.zhiyiyo.graph;  import com.zhiyiyo.collection.stack.LinkStack; import com.zhiyiyo.collection.stack.Stack;   public class DepthFirstSearch implements Search {     private boolean[] marked;     private int[] edgeTo;     private Graph graph;     private int s;     private int N;      public DepthFirstSearch(Graph graph, int s) {         this.graph = graph;         this.s = s;         marked = new boolean[graph.V()];         edgeTo = new int[graph.V()];         dfs();     }      /**      * 递归实现的深度优先搜索      *      * @param v 顶点 v      */     private void dfs(int v) {         marked[v] = true;         N++;         for (int i : graph.adj(v)) {             if (!marked[i]) {                 edgeTo[i] = v;                 dfs(i);             }         }     }      /**      * 堆栈实现的深度优先搜索      */     private void dfs() {         Stack&lt;Integer&gt; vertexes = new LinkStack&lt;&gt;();         vertexes.push(s);         marked<span class="show-more" title="文字折叠"><span><i class="be be-squareplus"></i>展开</span></span> = true;          while (!vertexes.isEmpty()) {             Integer v = vertexes.pop();             N++;              // 将所有相邻顶点加到堆栈中             for (Integer i : graph.adj(v)) {                 if (!marked[i]) {                     edgeTo[i] = v;                     marked[i] = true;                     vertexes.push(i);                 }             }         }     }      @Override     public boolean connected(int v) {         return marked[v];     }      @Override     public int count() {         return N;     }      @Override     public boolean hasPathTo(int v) {         return connected(v);     }      @Override     public Iterable&lt;Integer&gt; pathTo(int v) {         if (!hasPathTo(v)) return null;         Stack&lt;Integer&gt; path = new LinkStack&lt;&gt;();          int vertex = v;         while (vertex != s) {             path.push(vertex);             vertex = edgeTo[vertex];         }          path.push(s);         return path;     } }</code></pre> <h2 id="广度优先搜索">广度优先搜索</h2> <p>广度优先搜索的思想类似树的层序遍历。与深度优先搜索不同，从顶点 0 出发，广度优先搜索会先处理完所有与顶点 0 相邻的顶点 2、1、5 后，才会接着处理顶点 2、1、5 的相邻顶点。这个搜索过程就是一圈一圈往外扩展、越走越远的过程，所以可以用来获取顶点 0 到其他节点的最短路径。只要将深度优先搜索中的堆换成队列，就能实现广度优先搜索：</p> <pre><code class="language-java">package com.zhiyiyo.graph;  import com.zhiyiyo.collection.queue.LinkQueue;  public class BreadthFirstSearch implements Search {     private boolean[] marked;     private int[] edgeTo;     private Graph graph;     private int s;     private int N;      public BreadthFirstSearch(Graph graph, int s) {         this.graph = graph;         this.s = s;         marked = new boolean[graph.V()];         edgeTo = new int[graph.V()];         bfs();     }      private void bfs() {         LinkQueue&lt;Integer&gt; queue = new LinkQueue&lt;&gt;();         marked<span class="show-more" title="文字折叠"><span><i class="be be-squareplus"></i>展开</span></span> = true;         queue.enqueue(s);          while (!queue.isEmpty()) {             int v = queue.dequeue();             N++;              for (Integer i : graph.adj(v)) {                 if (!marked[i]) {                     edgeTo[i] = v;                     marked[i] = true;                     queue.enqueue(i);                 }             }         }     } }</code></pre> <p>队列的实现代码如下：</p> <pre><code class="language-java">package com.zhiyiyo.collection.queue;   import java.util.EmptyStackException;   public class LinkQueue&lt;T&gt; {     private int N;     private Node first;     private Node last;      public void enqueue(T item) {         Node node = new Node(item, null);         if (++N == 1) {             first = node;         } else {             last.next = node;         }         last = node;     }      public T dequeue() throws EmptyStackException {         if (N == 0) {             throw new EmptyStackException();         }          T item = first.item;         first = first.next;         if (--N == 0) {             last = null;         }         return item;     }      public int size() {         return N;     }      public boolean isEmpty() {         return N == 0;     }      private class Node {         T item;         Node next;          public Node() {         }          public Node(T item, Node next) {             this.item = item;             this.next = next;         }     } }</code></pre> </h1> <p>这样就简要介绍完了无向图的实现及遍历方式，对于无向图的更多操作，比如寻找环和判断是否为二分图可以参见《算法第四版》，以上~~</p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-87172.htm">猫粮狗粮属于多少类商标（猫粮狗粮成分区别）</a></p>
+                                        <p>下一个：<a href="/news/article-87906.htm">开个小型宠物食品加工厂（开个小型宠物食品加工厂需要什么手续）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-68692.htm" title="宠物寄养流程图（宠物寄养流程图片大全）">宠物寄养流程图（宠物寄养流程图片大全）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-6-node-share.htm" title="韩国VPN | 3月6日21M/S|免费Clash/V2ray/Shadowrocket/SSR免费节点订阅分享">韩国VPN | 3月6日21M/S|免费Clash/V2ray/Shadowrocket/SSR免费节点订阅分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-10-free-v2ray-subscribe.htm" title="韩国VPN | 3月10日19.6M/S|免费V2ray/Shadowrocket/Clash/SSR免费节点订阅分享">韩国VPN | 3月10日19.6M/S|免费V2ray/Shadowrocket/Clash/SSR免费节点订阅分享</a></li>
+                        <li class="py-2"><a href="/news/article-65547.htm" title="我们可以作为参数传递给MySQL UNIX_TIMESTAMP函数的日期时间值的范围是多少？">我们可以作为参数传递给MySQL UNIX_TIMESTAMP函数的日期时间值的范围是多少？</a></li>
+                        <li class="py-2"><a href="/news/article-85034.htm" title="兰州哪里卖宠物狗的多啊（兰州哪有买狗的）">兰州哪里卖宠物狗的多啊（兰州哪有买狗的）</a></li>
+                        <li class="py-2"><a href="/news/article-69353.htm" title="动物医院资质要求标准（动物医院资质要求标准是多少）">动物医院资质要求标准（动物医院资质要求标准是多少）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-22-clash-v2ray-ss-ssr.htm" title="韩国VPN | 3月22日20.9M/S|免费V2ray/SSR/Shadowrocket/Clash免费节点订阅分享">韩国VPN | 3月22日20.9M/S|免费V2ray/SSR/Shadowrocket/Clash免费节点订阅分享</a></li>
+                        <li class="py-2"><a href="/news/article-69995.htm" title="动物接种的途径有哪些分别适用于何种病毒（动物接种要点）">动物接种的途径有哪些分别适用于何种病毒（动物接种要点）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-12-free-node-subscribe.htm" title="韩国VPN | 3月12日22.9M/S|免费V2ray/SSR/Clash/Shadowrocket免费节点订阅分享">韩国VPN | 3月12日22.9M/S|免费V2ray/SSR/Clash/Shadowrocket免费节点订阅分享</a></li>
+                        <li class="py-2"><a href="/news/article-74636.htm" title="广州宠物批发市场位置（广州哪里有宠物批发市场产品）">广州宠物批发市场位置（广州哪里有宠物批发市场产品）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">13</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">87</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End About -->
+    <!--========== END PAGE LAYOUT ==========-->
+        <!--========== FOOTER ==========-->
+    <footer class="footer">
+        <div class="content container">
+            <div class="row">
+                <div class="col-xs-12 text-center">
+                                        <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <p class="margin-b-0">
+                        <a href="/">韩国VPN 订阅机场节点官网</a> 版权所有
+                        <br />
+                        Powered by WordPress
+                    </p>
+                </div>
+            </div>
+            <!--// end row -->
+        </div>
+    </footer>
+    <!--========== END FOOTER ==========-->
+    <!-- Back To Top -->
+    <a href="javascript:void(0);" class="js-back-to-top back-to-top">Top</a>
+    <!-- JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+    <!-- CORE PLUGINS -->
+    <script src="/assets/website/js/frontend/bifrostv/jquery.min.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/bifrostv/jquery-migrate.min.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/bifrostv/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <!-- PAGE LEVEL PLUGINS -->
+    <script src="/assets/website/js/frontend/bifrostv/jquery.easing.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/bifrostv/jquery.back-to-top.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/bifrostv/jquery.smooth-scroll.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/bifrostv/jquery.wow.min.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/bifrostv/jquery.parallax.min.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/bifrostv/jquery.appear.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/bifrostv/masonry/jquery.masonry.pkgd.min.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/bifrostv/masonry/imagesloaded.pkgd.min.js" type="text/javascript"></script>
+    <!-- PAGE LEVEL SCRIPTS -->
+    <script src="/assets/website/js/frontend/bifrostv/layout.min.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/bifrostv/components/progress-bar.min.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/bifrostv/components/masonry.min.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/bifrostv/components/wow.min.js" type="text/javascript"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+
+</html>
