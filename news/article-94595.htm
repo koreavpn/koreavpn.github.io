@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN" class="no-js">
+
+<head>
+        <link rel="canonical" href="https://koreavpn.github.io/news/article-94595.htm" />
+    <meta charset="utf-8" />
+    <title>Springboot 整合 xxljob 动态API调度任务(进阶篇)</title>
+        <meta name="description" content="之前写了一篇 xxljob的新手入门篇： Springboot 整合 xxljob 使用定时任务调度(新手入门篇)_小目标青年的博客-CSDN博客 这一篇非常非常简单，就是非常快速的springboo" />
+        <link rel="icon" href="/assets/website/img/bifrostv/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="韩国VPN 订阅机场节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://koreavpn.github.io/news/article-94595.htm" />
+    <meta property="og:site_name" content="韩国VPN 订阅机场节点官网" />
+    <meta property="og:title" content="Springboot 整合 xxljob 动态API调度任务(进阶篇)" />
+    <meta property="og:image" content="https://koreavpn.github.io/uploads/20240907-1/79c506a24d461a2430a7e8074b4953df.webp" />
+        <meta property="og:release_date" content="2025-04-13T07:17:30" />
+    <meta property="og:updated_time" content="2025-04-13T07:17:30" />
+        <meta property="og:description" content="之前写了一篇 xxljob的新手入门篇： Springboot 整合 xxljob 使用定时任务调度(新手入门篇)_小目标青年的博客-CSDN博客 这一篇非常非常简单，就是非常快速的springboo" />
+        
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Springboot 整合 xxljob 动态API调度任务(进阶篇)">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    
+    <!-- GLOBAL MANDATORY STYLES -->
+    <link href="http://fonts.googleapis.com/css?family=Hind:300,400,500,600,700" rel="stylesheet" type="text/css">
+    <link href="/assets/website/js/frontend/bifrostv/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/website/js/frontend/bifrostv/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!-- PAGE LEVEL PLUGIN STYLES -->
+    <link href="/assets/website/css/bifrostv/animate.css" rel="stylesheet">
+    <!-- THEME STYLES -->
+    <link href="/assets/website/css/bifrostv/layout.min.css" rel="stylesheet" type="text/css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3BM4QTX515"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-3BM4QTX515');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+
+<body id="body" data-spy="scroll" data-target=".header" data-page="detail">
+        <!--========== HEADER ==========-->
+    <header class="header navbar-fixed-top">
+        <!-- Navbar -->
+        <nav class="navbar" role="navigation">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="menu-container">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="toggle-icon"></span>
+                    </button>
+                    <!-- Logo -->
+                    <div class="logo">
+                                                <a class="logo-wrap" href="/">
+                            <span>韩国VPN</span>
+                        </a>
+                                            </div>
+                    <!-- End Logo -->
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse nav-collapse">
+                    <div class="menu-container">
+                        <ul class="nav navbar-nav navbar-nav-right">
+                                                        <li class="nav-item"><a class="nav-item-child nav-item-hover" href="/">首页</a></li>
+                                                        <li class="nav-item"><a class="nav-item-child nav-item-hover" href="/free-nodes/">免费节点</a></li>
+                                                        <li class="nav-item"><a class="nav-item-child nav-item-hover" href="/paid-subscribe/">推荐机场</a></li>
+                                                        <li class="nav-item"><a class="nav-item-child nav-item-hover" href="/news/">新闻资讯</a></li>
+                                                        <li class="nav-item"><a class="nav-item-child nav-item-hover" href="/client.htm">客户端</a></li>
+                                                    </ul>
+                    </div>
+                </div>
+                <!-- End Navbar Collapse -->
+            </div>
+        </nav>
+        <!-- Navbar -->
+    </header>
+    <!--========== END HEADER ==========-->
+    <!--========== SLIDER ==========-->
+    <div class="promo-block parallax-window" data-parallax="scroll" data-image-src="/assets/website/img/bifrostv/1920x1080/01.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="promo-block-divider">
+                        <h1 class="promo-block-title">Springboot 整合 xxljob 动态API调度任务(进阶篇)</h1>
+                        <p class="promo-block-text">
+                            <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!--// end row -->
+        </div>
+    </div>
+    <!--========== SLIDER ==========-->
+    <!--========== PAGE LAYOUT ==========-->
+    <!-- About -->
+    <div id="about">
+        <div class="container content-lg">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> </h1> <p>之前写了一篇 xxljob的新手入门篇：</p> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://blog.csdn.net/qq_35387940/article/details/125275354"  title="Springboot 整合 xxljob 使用定时任务调度(新手入门篇)_小目标青年的博客-CSDN博客" rel="nofollow">Springboot 整合 xxljob 使用定时任务调度(新手入门篇)_小目标青年的博客-CSDN博客</a></p> <p>这一篇非常非常简单，就是非常快速的springboot整合 xxljob，相当于拿来即用，能够通过页面配合代码去实现定时任务的使用。</p> <p>这一篇，我们将在上一篇的基础上，做一些进阶使用，实现动态地调度定时任务。</p> <p>我们平时工作经常会遇到这些业务使用场景（举例）：</p> <p> 执行某个业务后，需要产生一个定时任务；</p> <p>怎么怎么判断成功后，需要停止某个任务；</p> <p>怎么怎么判断符合条件后，需要重新执行某个任务；</p> <p>怎么怎么....移除某个任务；</p> <p>摊牌了，实现的效果就是：</p> <p><strong>通过API方式（或者方法函数），我们动态随意地去 增删改查、设置定时规则等等去调度任务。</strong></p> <p>上一篇几乎是基于HTML页面去对任务创建、启动、停在、删除等等， 非常需要有人去处理，这一篇就是解放我们双手！</p> </h1> <p>惯例，瞎话一张简图：</p> <p>大致就是admin上面写一些开放接口，各个接入xxl job的demo服务都能通过接口调用，完成动态调度，至于啥时候调度，看自己的业务场景，自己使用。</p> <p><img fetchpriority="high" decoding="async" alt="" height="561" src="http://img.555519.xyz/uploads/20230108/2499ac1c7a2981b850357f1d8b684c92.jpg"></p> <p>① admin 服务 加接口，其实说实话，原先也提供了很多api接口，但是我这次非得自己搞一下。</p> <p><img decoding="async" alt="" height="349" src="http://img.555519.xyz/uploads/20230108/becaa4b78abe9e1701c6e81ebfce6fb6.jpg"></p> <p>&nbsp;提供的接口：<br /><img decoding="async" alt="" height="678" src="http://img.555519.xyz/uploads/20230108/d04b6d3e8035ab305f5c8eae060348f9.jpg"></p> <p>&nbsp;MyDynamicApiController.java ：<br /> &nbsp;</p> <pre><code class="language-java">import com.xxl.job.admin.controller.annotation.PermissionLimit; import com.xxl.job.admin.core.cron.CronExpression; import com.xxl.job.admin.core.model.XxlJobInfo; import com.xxl.job.admin.core.model.XxlJobQuery; import com.xxl.job.admin.core.thread.JobScheduleHelper; import com.xxl.job.admin.core.util.I18nUtil; import com.xxl.job.admin.service.LoginService; import com.xxl.job.admin.service.XxlJobService; import com.xxl.job.core.biz.model.ReturnT; import org.slf4j.Logger; import org.slf4j.LoggerFactory; import org.springframework.beans.factory.annotation.Autowired; import org.springframework.web.bind.annotation.*;  import javax.servlet.http.HttpServletRequest; import javax.servlet.http.HttpServletResponse; import java.text.ParseException; import java.util.Date; import java.util.Map;  /**  * @Author: JCccc  * @Date: 2022-6-2 14:23  * @Description: xxl job rest api  */ @RestController @RequestMapping("/api/jobinfo") public class MyDynamicApiController {     private static Logger logger = LoggerFactory.getLogger(MyDynamicApiController.class);     @Autowired     private XxlJobService xxlJobService;     @Autowired     private LoginService loginService;      @RequestMapping(value = "/pageList",method = RequestMethod.POST)     public Map&lt;String, Object&gt; pageList(@RequestBody XxlJobQuery xxlJobQuery) {         return xxlJobService.pageList(                 xxlJobQuery.getStart(),                 xxlJobQuery.getLength(),                 xxlJobQuery.getJobGroup(),                 xxlJobQuery.getTriggerStatus(),                 xxlJobQuery.getJobDesc(),                 xxlJobQuery.getExecutorHandler(),                 xxlJobQuery.getAuthor());     }     @PostMapping("/save")     public ReturnT&lt;String&gt; add(@RequestBody(required = true)XxlJobInfo jobInfo) {          // next trigger time (5s后生效，避开预读周期)         long nextTriggerTime = 0;         try {             Date nextValidTime = new CronExpression(jobInfo.getJobCron()).getNextValidTimeAfter(new Date(System.currentTimeMillis() + JobScheduleHelper.PRE_READ_MS));             if (nextValidTime == null) {                 return new ReturnT&lt;String&gt;(ReturnT.FAIL_CODE, I18nUtil.getString("jobinfo_field_cron_never_fire"));             }             nextTriggerTime = nextValidTime.getTime();         } catch (ParseException e) {             logger.error(e.getMessage(), e);             return new ReturnT&lt;String&gt;(ReturnT.FAIL_CODE, I18nUtil.getString("jobinfo_field_cron_unvalid")+" | "+ e.getMessage());         }          jobInfo.setTriggerStatus(1);         jobInfo.setTriggerLastTime(0);         jobInfo.setTriggerNextTime(nextTriggerTime);          jobInfo.setUpdateTime(new Date());          if(jobInfo.getId()==0){             return xxlJobService.add(jobInfo);         }else{             return xxlJobService.update(jobInfo);         }     }     @RequestMapping(value = "/delete",method = RequestMethod.GET)     public ReturnT&lt;String&gt; delete(int id) {         return xxlJobService.remove(id);     }     @RequestMapping(value = "/start",method = RequestMethod.GET)     public ReturnT&lt;String&gt; start(int id) {         return xxlJobService.start(id);     }     @RequestMapping(value = "/stop",method = RequestMethod.GET)     public ReturnT&lt;String&gt; stop(int id) {         return xxlJobService.stop(id);     }     @RequestMapping(value="login", method=RequestMethod.GET)     @PermissionLimit(limit=false)     public ReturnT&lt;String&gt; loginDo(HttpServletRequest request, HttpServletResponse response, String userName, String password, String ifRemember){         boolean ifRem = (ifRemember!=null &amp;&amp; ifRemember.trim().length()&gt;0 &amp;&amp; "on".equals(ifRemember))?true:false;         ReturnT&lt;String&gt; result= loginService.login(request, response, userName, password, ifRem);         return result;     } }</code></pre> <p>XxlJobQuery.java&nbsp;&nbsp;</p> <p>（这里有说法，为什么我这篇特意写了一个这个查询类，抛砖引玉，在新手篇里面我介绍过，xxl job 是有数据库的，意味着我们可以很容易拓展）</p> <pre><code class="language-java">/**  * @Author: JCccc  * @Date: 2022-6-2 14:23  * @Description: xxl job rest api  */ public class XxlJobQuery {  	private	int start; 	private int length; 	private int triggerStatus; 	private String jobDesc; 	private String executorHandler; 	private String author; 	private int jobGroup;  	public int getStart() { 		return start; 	}  	public void setStart(int start) { 		this.start = start; 	}  	public int getLength() { 		return length; 	}  	public void setLength(int length) { 		this.length = length; 	}  	public int getTriggerStatus() { 		return triggerStatus; 	}  	public void setTriggerStatus(int triggerStatus) { 		this.triggerStatus = triggerStatus; 	}  	public String getJobDesc() { 		return jobDesc; 	}  	public void setJobDesc(String jobDesc) { 		this.jobDesc = jobDesc; 	}  	public String getExecutorHandler() { 		return executorHandler; 	}  	public void setExecutorHandler(String executorHandler) { 		this.executorHandler = executorHandler; 	}  	public String getAuthor() { 		return author; 	}  	public void setAuthor(String author) { 		this.author = author; 	}  	public int getJobGroup() { 		return jobGroup; 	}  	public void setJobGroup(int jobGroup) { 		this.jobGroup = jobGroup; 	} }</code></pre> <p>② 在接入xxl job 的demo上 开始玩动态调度，其实就是调用admin里我们刚才写的提供的接口</p> <blockquote> <p>PS： 本篇里面有些不好的编码习惯，例如返回值用Map；打印用的输出，没用log； 接口返回没有统一返回数据等等， 因为我该篇是为了传递 怎么动态调度使用，具体细节大家自行调整就行，我们都是成年人，不要在意我这些点。</p> </blockquote> <p>先是pom.xml 引入使用的一些jar：</p> <p> （一个是fastjson，大家别学我，我是为了实战示例图方便，用的JsonObject来传参）</p> <p>（一个是httpClient ，用于调用admin服务的api接口）</p> <pre><code class="language-html">        &lt;dependency&gt;             &lt;groupId&gt;commons-httpclient&lt;/groupId&gt;             &lt;artifactId&gt;commons-httpclient&lt;/artifactId&gt;             &lt;version&gt;3.1&lt;/version&gt;         &lt;/dependency&gt;         &lt;dependency&gt;             &lt;groupId&gt;com.alibaba&lt;/groupId&gt;             &lt;artifactId&gt;fastjson&lt;/artifactId&gt;             &lt;version&gt;1.2.47&lt;/version&gt;         &lt;/dependency&gt;</code></pre> <p><img loading="lazy" decoding="async" alt="" height="229" src="http://img.555519.xyz/uploads/20230108/7101e7aec6305bd03bb04fc81490f7ea.jpg"></p> <p>XxlJobInfo.java&nbsp;</p> <p>这个是原作者的其实，因为我们本质还是调用了作者xxl job提供的&nbsp;&nbsp;XxlJobService 里面的方法。</p> <pre><code class="language-java">import java.util.Date;  /**  * xxl-job info  *  * @author xuxueli  2016-1-12 18:25:49  */ public class XxlJobInfo { 	 	private int id;				// 主键ID 	private int jobGroup;		// 执行器主键ID 	private String jobDesc;     // 备注 	private String jobCron; 	private Date addTime; 	private Date updateTime; 	private String author;		// 负责人 	private String alarmEmail;	// 报警邮件 	private String scheduleType;			// 调度类型 	private String scheduleConf;			// 调度配置，值含义取决于调度类型 	private String misfireStrategy;			// 调度过期策略 	private String executorRouteStrategy;	// 执行器路由策略 	private String executorHandler;		    // 执行器，任务Handler名称 	private String executorParam;		    // 执行器，任务参数 	private String executorBlockStrategy;	// 阻塞处理策略 	private int executorTimeout;     		// 任务执行超时时间，单位秒 	private int executorFailRetryCount;		// 失败重试次数 	private String glueType;		// GLUE类型	#com.xxl.job.core.glue.GlueTypeEnum 	private String glueSource;		// GLUE源代码 	private String glueRemark;		// GLUE备注 	private Date glueUpdatetime;	// GLUE更新时间 	private String childJobId;		// 子任务ID，多个逗号分隔 	private int triggerStatus;		// 调度状态：0-停止，1-运行 	private long triggerLastTime;	// 上次调度时间 	private long triggerNextTime;	// 下次调度时间  	public String getJobCron() { 		return jobCron; 	}  	public void setJobCron(String jobCron) { 		this.jobCron = jobCron; 	}  	public int getId() { 		return id; 	}  	public void setId(int id) { 		this.id = id; 	}  	public int getJobGroup() { 		return jobGroup; 	}  	public void setJobGroup(int jobGroup) { 		this.jobGroup = jobGroup; 	}  	public String getJobDesc() { 		return jobDesc; 	}  	public void setJobDesc(String jobDesc) { 		this.jobDesc = jobDesc; 	}  	public Date getAddTime() { 		return addTime; 	}  	public void setAddTime(Date addTime) { 		this.addTime = addTime; 	}  	public Date getUpdateTime() { 		return updateTime; 	}  	public void setUpdateTime(Date updateTime) { 		this.updateTime = updateTime; 	}  	public String getAuthor() { 		return author; 	}  	public void setAuthor(String author) { 		this.author = author; 	}  	public String getAlarmEmail() { 		return alarmEmail; 	}  	public void setAlarmEmail(String alarmEmail) { 		this.alarmEmail = alarmEmail; 	}  	public String getScheduleType() { 		return scheduleType; 	}  	public void setScheduleType(String scheduleType) { 		this.scheduleType = scheduleType; 	}  	public String getScheduleConf() { 		return scheduleConf; 	}  	public void setScheduleConf(String scheduleConf) { 		this.scheduleConf = scheduleConf; 	}  	public String getMisfireStrategy() { 		return misfireStrategy; 	}  	public void setMisfireStrategy(String misfireStrategy) { 		this.misfireStrategy = misfireStrategy; 	}  	public String getExecutorRouteStrategy() { 		return executorRouteStrategy; 	}  	public void setExecutorRouteStrategy(String executorRouteStrategy) { 		this.executorRouteStrategy = executorRouteStrategy; 	}  	public String getExecutorHandler() { 		return executorHandler; 	}  	public void setExecutorHandler(String executorHandler) { 		this.executorHandler = executorHandler; 	}  	public String getExecutorParam() { 		return executorParam; 	}  	public void setExecutorParam(String executorParam) { 		this.executorParam = executorParam; 	}  	public String getExecutorBlockStrategy() { 		return executorBlockStrategy; 	}  	public void setExecutorBlockStrategy(String executorBlockStrategy) { 		this.executorBlockStrategy = executorBlockStrategy; 	}  	public int getExecutorTimeout() { 		return executorTimeout; 	}  	public void setExecutorTimeout(int executorTimeout) { 		this.executorTimeout = executorTimeout; 	}  	public int getExecutorFailRetryCount() { 		return executorFailRetryCount; 	}  	public void setExecutorFailRetryCount(int executorFailRetryCount) { 		this.executorFailRetryCount = executorFailRetryCount; 	}  	public String getGlueType() { 		return glueType; 	}  	public void setGlueType(String glueType) { 		this.glueType = glueType; 	}  	public String getGlueSource() { 		return glueSource; 	}  	public void setGlueSource(String glueSource) { 		this.glueSource = glueSource; 	}  	public String getGlueRemark() { 		return glueRemark; 	}  	public void setGlueRemark(String glueRemark) { 		this.glueRemark = glueRemark; 	}  	public Date getGlueUpdatetime() { 		return glueUpdatetime; 	}  	public void setGlueUpdatetime(Date glueUpdatetime) { 		this.glueUpdatetime = glueUpdatetime; 	}  	public String getChildJobId() { 		return childJobId; 	}  	public void setChildJobId(String childJobId) { 		this.childJobId = childJobId; 	}  	public int getTriggerStatus() { 		return triggerStatus; 	}  	public void setTriggerStatus(int triggerStatus) { 		this.triggerStatus = triggerStatus; 	}  	public long getTriggerLastTime() { 		return triggerLastTime; 	}  	public void setTriggerLastTime(long triggerLastTime) { 		this.triggerLastTime = triggerLastTime; 	}  	public long getTriggerNextTime() { 		return triggerNextTime; 	}  	public void setTriggerNextTime(long triggerNextTime) { 		this.triggerNextTime = triggerNextTime; 	} } </code></pre> <p>XxlJobUtil.java&nbsp;</p> <pre><code class="language-java">import com.alibaba.fastjson.JSONObject; import org.apache.commons.httpclient.*; import org.apache.commons.httpclient.methods.GetMethod; import org.apache.commons.httpclient.methods.PostMethod; import org.apache.commons.httpclient.methods.RequestEntity; import org.apache.commons.httpclient.methods.StringRequestEntity;  import java.io.BufferedReader; import java.io.IOException; import java.io.InputStream; import java.io.InputStreamReader;  /**  * @Author: JCccc  * @Date: 2022-6-22 9:51  * @Description:  */ public class XxlJobUtil {     private static String cookie="";       /**      * 查询现有的任务（可以关注这个整个调用链，可以自己模仿着写其他的拓展接口）      * @param url      * @param requestInfo      * @return      * @throws HttpException      * @throws IOException      */     public static JSONObject pageList(String url,JSONObject requestInfo) throws HttpException, IOException {         String path = "/api/jobinfo/pageList";         String targetUrl = url + path;         HttpClient httpClient = new HttpClient();         PostMethod post = new PostMethod(targetUrl);         post.setRequestHeader("cookie", cookie);         RequestEntity requestEntity = new StringRequestEntity(requestInfo.toString(), "application/json", "utf-8");         post.setRequestEntity(requestEntity);         httpClient.executeMethod(post);         JSONObject result = new JSONObject();         result = getJsonObject(post, result);         System.out.println(result.toJSONString());         return result;     }        /**      * 新增/编辑任务      * @param url      * @param requestInfo      * @return      * @throws HttpException      * @throws IOException      */     public static JSONObject addJob(String url,JSONObject requestInfo) throws HttpException, IOException {         String path = "/api/jobinfo/save";         String targetUrl = url + path;         HttpClient httpClient = new HttpClient();         PostMethod post = new PostMethod(targetUrl);         post.setRequestHeader("cookie", cookie);         RequestEntity requestEntity = new StringRequestEntity(requestInfo.toString(), "application/json", "utf-8");         post.setRequestEntity(requestEntity);         httpClient.executeMethod(post);         JSONObject result = new JSONObject();         result = getJsonObject(post, result);         System.out.println(result.toJSONString());         return result;     }      /**      * 删除任务      * @param url      * @param id      * @return      * @throws HttpException      * @throws IOException      */     public static JSONObject deleteJob(String url,int id) throws HttpException, IOException {         String path = "/api/jobinfo/delete?id="+id;         return doGet(url,path);     }      /**      * 开始任务      * @param url      * @param id      * @return      * @throws HttpException      * @throws IOException      */     public static JSONObject startJob(String url,int id) throws HttpException, IOException {         String path = "/api/jobinfo/start?id="+id;         return doGet(url,path);     }      /**      * 停止任务      * @param url      * @param id      * @return      * @throws HttpException      * @throws IOException      */     public static JSONObject stopJob(String url,int id) throws HttpException, IOException {         String path = "/api/jobinfo/stop?id="+id;         return doGet(url,path);     }      public static JSONObject doGet(String url,String path) throws HttpException, IOException {         String targetUrl = url + path;         HttpClient httpClient = new HttpClient();         HttpMethod get = new GetMethod(targetUrl);         get.setRequestHeader("cookie", cookie);         httpClient.executeMethod(get);         JSONObject result = new JSONObject();         result = getJsonObject(get, result);         return result;     }      private static JSONObject getJsonObject(HttpMethod postMethod, JSONObject result) throws IOException {         if (postMethod.getStatusCode() == HttpStatus.SC_OK) {             InputStream inputStream = postMethod.getResponseBodyAsStream();             BufferedReader br = new BufferedReader(new InputStreamReader(inputStream));             StringBuffer stringBuffer = new StringBuffer();             String str;             while((str = br.readLine()) != null){                 stringBuffer.append(str);             }             String response = new String(stringBuffer);             br.close();              return (JSONObject) JSONObject.parse(response);         } else {             return null;         }       }      /**      * 登录      * @param url      * @param userName      * @param password      * @return      * @throws HttpException      * @throws IOException      */      public static String login(String url, String userName, String password) throws HttpException, IOException {         String path = "/api/jobinfo/login?userName="+userName+"&amp;password="+password;         String targetUrl = url + path;         HttpClient httpClient = new HttpClient();         HttpMethod get = new GetMethod((targetUrl));         httpClient.executeMethod(get);         if (get.getStatusCode() == 200) {             Cookie[] cookies = httpClient.getState().getCookies();             StringBuffer tmpcookies = new StringBuffer();             for (Cookie c : cookies) {                 tmpcookies.append(c.toString() + ";");             }             cookie = tmpcookies.toString();         } else {             try {                 cookie = "";             } catch (Exception e) {                 cookie="";             }         }         return cookie;     } }</code></pre> <p>&nbsp;XxlJobController.java</p> <p>（用于模拟触发我们的任务创建、编辑、删除、停止等等）</p> <pre><code class="language-java">import java.util.Date; import com.alibaba.fastjson.JSONObject; import org.springframework.web.bind.annotation.*; import java.io.IOException;  /**  * @Author: JCccc  * @Date: 2022-6-22 9:26  * @Description:  */ @RestController public class XxlJobController {       @RequestMapping(value = "/pageList",method = RequestMethod.GET)     public Object pageList() throws IOException {         //int jobGroup, int triggerStatus, String jobDesc, String executorHandler, String author         JSONObject test=new JSONObject();         test.put("length",10);         XxlJobUtil.login("http://127.0.0.1:8961/xxl-job-admin","admin","123456");         JSONObject response = XxlJobUtil.pageList("http://127.0.0.1:8961/xxl-job-admin", test);         return  response.get("data");     }      @RequestMapping(value = "/add",method = RequestMethod.GET)     public void add() throws IOException {         XxlJobInfo xxlJobInfo=new XxlJobInfo();         xxlJobInfo.setJobCron("0/5 * * * * ?");         xxlJobInfo.setJobGroup(3);         xxlJobInfo.setJobDesc("我来试试");         xxlJobInfo.setAddTime(new Date());         xxlJobInfo.setUpdateTime(new Date());         xxlJobInfo.setAuthor("JCccc");         xxlJobInfo.setAlarmEmail("864477182@com");         xxlJobInfo.setScheduleType("CRON");         xxlJobInfo.setScheduleConf("0/5 * * * * ?");         xxlJobInfo.setMisfireStrategy("DO_NOTHING");         xxlJobInfo.setExecutorRouteStrategy("FIRST");         xxlJobInfo.setExecutorHandler("clockInJobHandler");         xxlJobInfo.setExecutorParam("att");         xxlJobInfo.setExecutorBlockStrategy("SERIAL_EXECUTION");         xxlJobInfo.setExecutorTimeout(0);         xxlJobInfo.setExecutorFailRetryCount(1);         xxlJobInfo.setGlueType("BEAN");         xxlJobInfo.setGlueSource("");         xxlJobInfo.setGlueRemark("GLUE代码初始化");         xxlJobInfo.setGlueUpdatetime(new Date());         JSONObject test = (JSONObject) JSONObject.toJSON(xxlJobInfo);         XxlJobUtil.login("http://127.0.0.1:8961/xxl-job-admin","admin","123456");         JSONObject response = XxlJobUtil.addJob("http://127.0.0.1:8961/xxl-job-admin", test);         if (response.containsKey("code") &amp;&amp; 200 == (Integer) response.get("code")) {             System.out.println("新增成功");         } else {             System.out.println("新增失败");         }       }      @RequestMapping(value = "/stop/{jobId}",method = RequestMethod.GET)     public void stop(@PathVariable("jobId") Integer jobId) throws IOException {          XxlJobUtil.login("http://127.0.0.1:8961/xxl-job-admin","admin","123456");         JSONObject response = XxlJobUtil.stopJob("http://127.0.0.1:8961/xxl-job-admin", jobId);         if (response.containsKey("code") &amp;&amp; 200 == (Integer) response.get("code")) {             System.out.println("任务停止成功");         } else {             System.out.println("任务停止失败");         }     }      @RequestMapping(value = "/delete/{jobId}",method = RequestMethod.GET)     public void delete(@PathVariable("jobId") Integer jobId) throws IOException {          XxlJobUtil.login("http://127.0.0.1:8961/xxl-job-admin","admin","123456");         JSONObject response = XxlJobUtil.deleteJob("http://127.0.0.1:8961/xxl-job-admin", jobId);         if (response.containsKey("code") &amp;&amp; 200 == (Integer) response.get("code")) {             System.out.println("任务移除成功");         } else {             System.out.println("任务移除失败");         }     }       @RequestMapping(value = "/start/{jobId}",method = RequestMethod.GET)     public void start(@PathVariable("jobId") Integer jobId) throws IOException {          XxlJobUtil.login("http://127.0.0.1:8961/xxl-job-admin","admin","123456");         JSONObject response = XxlJobUtil.startJob("http://127.0.0.1:8961/xxl-job-admin", jobId);         if (response.containsKey("code") &amp;&amp; 200 == (Integer) response.get("code")) {             System.out.println("任务启动成功");         } else {             System.out.println("任务启动失败");         }     }      }</code></pre> </h1> <h2> <p> 创建任务：</h2> <h2></h2> <h3>打开admin的HTML页面，这是原来上次我们手动创建的任务：<br /><img loading="lazy" decoding="async" alt="" height="376" src="http://img.555519.xyz/uploads/20230108/3c1db0ccc2a52a0a172f7208f5e86b6f.jpg"><br /> </h3> <p>现在我们通过api调用创建一个新的任务：<br /><img loading="lazy" decoding="async" alt="" height="218" src="http://img.555519.xyz/uploads/20230108/b7b4009b17fcd3c1a65cb31dfd90f32e.jpg"></p> <p>&nbsp;调用接口后，可以看的任务创建出来了，按照我们的cron和其他调度规则开始跑了：</p> <p><img loading="lazy" decoding="async" alt="" height="399" src="http://img.555519.xyz/uploads/20230108/e5c7d20803d54d4e3c46f6773441e43f.jpg"></p> <p>&nbsp;<img loading="lazy" decoding="async" alt="" height="333" src="http://img.555519.xyz/uploads/20230108/1bce4f7ea848dbc9ddb7de4e8efcf155.jpg"></p> <p>然后我们调用停止任务接口（通过任务ID停止）：<br /><img loading="lazy" decoding="async" alt="" height="196" src="http://img.555519.xyz/uploads/20230108/320156bb7557f1d3792f6614f701943f.jpg"></p> <p>&nbsp;<img loading="lazy" decoding="async" alt="" height="71" src="http://img.555519.xyz/uploads/20230108/29562d38fe41b3c5d5c1eeb4199d1d08.jpg"></p> <p>停在成功：</p> <p><img loading="lazy" decoding="async" alt="" height="233" src="http://img.555519.xyz/uploads/20230108/b0c68c819a89016e931c9786ac7513e1.jpg"></p> <p>那么玩到这，可能大伙会有疑问，我怎么知道哪个我要停止的任务的任务ID是哪个？</p> <p>所以我抛砖引玉写了个查询列表接口，大家可以意会一下，数据都在的，数据还不好拓展么，什么业务场景，怎么使用怎么调度，都可以自由发挥啊：<br /><img loading="lazy" decoding="async" alt="" height="555" src="http://img.555519.xyz/uploads/20230108/4af6542e17b879c0a2969433ac55e991.jpg"></p> <p>数据就在库里，自己查不就好了：<br /><img loading="lazy" decoding="async" alt="" height="163" src="http://img.555519.xyz/uploads/20230108/e66d19223d7db9c1b4e87bc14f08aa58.jpg"></p> <p>剩下还有启动 start接口，删除delete接口，修改update接口，我就不一一展示测试了。</p> <p>这些增删改查，怎么组合使用，什么业务使用，大家自己玩起来就行。</p> <p>好吧，该篇就到这。</p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-94134.htm">动物防疫站干嘛的工作（动物防疫站干嘛的工作人员）</a></p>
+                                        <p>下一个：<a href="/news/article-94596.htm">ElasticSearch（五） 整合Spring-data-elasticsearch</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-76669.htm" title="兰州哪里有宠物市场最大最出名的宠物市场啊（兰州宠物交易市场）">兰州哪里有宠物市场最大最出名的宠物市场啊（兰州宠物交易市场）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-9-free-v2ray.htm" title="韩国VPN | 4月9日21.7M/S|免费Shadowrocket/V2ray/SSR/Clash免费节点订阅分享">韩国VPN | 4月9日21.7M/S|免费Shadowrocket/V2ray/SSR/Clash免费节点订阅分享</a></li>
+                        <li class="py-2"><a href="/news/article-75982.htm" title="动物医院名字大全集图片（动物医院牌匾）">动物医院名字大全集图片（动物医院牌匾）</a></li>
+                        <li class="py-2"><a href="/news/article-68691.htm" title="动物医院资质级别有哪些要求呢 动物医院资质级别有哪些要求呢图片">动物医院资质级别有哪些要求呢 动物医院资质级别有哪些要求呢图片</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-6-free-subscribe-node.htm" title="韩国VPN | 4月6日19M/S|免费V2ray/Shadowrocket/SSR/Clash免费节点订阅分享">韩国VPN | 4月6日19M/S|免费V2ray/Shadowrocket/SSR/Clash免费节点订阅分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-24-clash-v2ray-ss-ssr.htm" title="韩国VPN | 3月24日21.7M/S|免费SSR/Clash/V2ray/Shadowrocket免费节点订阅分享">韩国VPN | 3月24日21.7M/S|免费SSR/Clash/V2ray/Shadowrocket免费节点订阅分享</a></li>
+                        <li class="py-2"><a href="/news/article-95339.htm" title="宠物店的粮适合买吗知乎推荐（宠物店卖的狗粮哪些牌子）">宠物店的粮适合买吗知乎推荐（宠物店卖的狗粮哪些牌子）</a></li>
+                        <li class="py-2"><a href="/news/article-65547.htm" title="我们可以作为参数传递给MySQL UNIX_TIMESTAMP函数的日期时间值的范围是多少？">我们可以作为参数传递给MySQL UNIX_TIMESTAMP函数的日期时间值的范围是多少？</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-31-node-share.htm" title="韩国VPN | 3月31日18.6M/S|免费Clash/SSR/Shadowrocket/V2ray免费节点订阅分享">韩国VPN | 3月31日18.6M/S|免费Clash/SSR/Shadowrocket/V2ray免费节点订阅分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-4-free-subscribe-node.htm" title="韩国VPN | 3月4日19.1M/S|免费V2ray/Clash/SSR/Shadowrocket免费节点订阅分享">韩国VPN | 3月4日19.1M/S|免费V2ray/Clash/SSR/Shadowrocket免费节点订阅分享</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">39</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">87</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End About -->
+    <!--========== END PAGE LAYOUT ==========-->
+        <!--========== FOOTER ==========-->
+    <footer class="footer">
+        <div class="content container">
+            <div class="row">
+                <div class="col-xs-12 text-center">
+                                        <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <p class="margin-b-0">
+                        <a href="/">韩国VPN 订阅机场节点官网</a> 版权所有
+                        <br />
+                        Powered by WordPress
+                    </p>
+                </div>
+            </div>
+            <!--// end row -->
+        </div>
+    </footer>
+    <!--========== END FOOTER ==========-->
+    <!-- Back To Top -->
+    <a href="javascript:void(0);" class="js-back-to-top back-to-top">Top</a>
+    <!-- JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+    <!-- CORE PLUGINS -->
+    <script src="/assets/website/js/frontend/bifrostv/jquery.min.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/bifrostv/jquery-migrate.min.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/bifrostv/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <!-- PAGE LEVEL PLUGINS -->
+    <script src="/assets/website/js/frontend/bifrostv/jquery.easing.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/bifrostv/jquery.back-to-top.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/bifrostv/jquery.smooth-scroll.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/bifrostv/jquery.wow.min.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/bifrostv/jquery.parallax.min.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/bifrostv/jquery.appear.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/bifrostv/masonry/jquery.masonry.pkgd.min.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/bifrostv/masonry/imagesloaded.pkgd.min.js" type="text/javascript"></script>
+    <!-- PAGE LEVEL SCRIPTS -->
+    <script src="/assets/website/js/frontend/bifrostv/layout.min.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/bifrostv/components/progress-bar.min.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/bifrostv/components/masonry.min.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/bifrostv/components/wow.min.js" type="text/javascript"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+
+</html>

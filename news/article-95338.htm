@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN" class="no-js">
+
+<head>
+        <link rel="canonical" href="https://koreavpn.github.io/news/article-95338.htm" />
+    <meta charset="utf-8" />
+    <title>关于Android安装apk出现解析包异常问题情况总结</title>
+        <meta name="description" content="说之前，可以推荐下各位使用这个开源库AndroidUtilCode，下面提及到的工具类，都是在此库中  以下说的解析包异常，是指进到安装页面就立马出现了错误提示 而不是在可以正常进入安装界面，然后点击" />
+        <link rel="icon" href="/assets/website/img/bifrostv/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="韩国VPN 订阅机场节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://koreavpn.github.io/news/article-95338.htm" />
+    <meta property="og:site_name" content="韩国VPN 订阅机场节点官网" />
+    <meta property="og:title" content="关于Android安装apk出现解析包异常问题情况总结" />
+    <meta property="og:image" content="https://koreavpn.github.io/uploads/20240907-1/bfe6b609df8656330ec3aac890b26ee1.webp" />
+        <meta property="og:release_date" content="2025-04-14T08:01:36" />
+    <meta property="og:updated_time" content="2025-04-14T08:01:36" />
+        <meta property="og:description" content="说之前，可以推荐下各位使用这个开源库AndroidUtilCode，下面提及到的工具类，都是在此库中  以下说的解析包异常，是指进到安装页面就立马出现了错误提示 而不是在可以正常进入安装界面，然后点击" />
+        
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="关于Android安装apk出现解析包异常问题情况总结">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    
+    <!-- GLOBAL MANDATORY STYLES -->
+    <link href="http://fonts.googleapis.com/css?family=Hind:300,400,500,600,700" rel="stylesheet" type="text/css">
+    <link href="/assets/website/js/frontend/bifrostv/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/website/js/frontend/bifrostv/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!-- PAGE LEVEL PLUGIN STYLES -->
+    <link href="/assets/website/css/bifrostv/animate.css" rel="stylesheet">
+    <!-- THEME STYLES -->
+    <link href="/assets/website/css/bifrostv/layout.min.css" rel="stylesheet" type="text/css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3BM4QTX515"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-3BM4QTX515');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+
+<body id="body" data-spy="scroll" data-target=".header" data-page="detail">
+        <!--========== HEADER ==========-->
+    <header class="header navbar-fixed-top">
+        <!-- Navbar -->
+        <nav class="navbar" role="navigation">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="menu-container">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="toggle-icon"></span>
+                    </button>
+                    <!-- Logo -->
+                    <div class="logo">
+                                                <a class="logo-wrap" href="/">
+                            <span>韩国VPN</span>
+                        </a>
+                                            </div>
+                    <!-- End Logo -->
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse nav-collapse">
+                    <div class="menu-container">
+                        <ul class="nav navbar-nav navbar-nav-right">
+                                                        <li class="nav-item"><a class="nav-item-child nav-item-hover" href="/">首页</a></li>
+                                                        <li class="nav-item"><a class="nav-item-child nav-item-hover" href="/free-nodes/">免费节点</a></li>
+                                                        <li class="nav-item"><a class="nav-item-child nav-item-hover" href="/paid-subscribe/">推荐机场</a></li>
+                                                        <li class="nav-item"><a class="nav-item-child nav-item-hover" href="/news/">新闻资讯</a></li>
+                                                        <li class="nav-item"><a class="nav-item-child nav-item-hover" href="/client.htm">客户端</a></li>
+                                                    </ul>
+                    </div>
+                </div>
+                <!-- End Navbar Collapse -->
+            </div>
+        </nav>
+        <!-- Navbar -->
+    </header>
+    <!--========== END HEADER ==========-->
+    <!--========== SLIDER ==========-->
+    <div class="promo-block parallax-window" data-parallax="scroll" data-image-src="/assets/website/img/bifrostv/1920x1080/01.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="promo-block-divider">
+                        <h1 class="promo-block-title">关于Android安装apk出现解析包异常问题情况总结</h1>
+                        <p class="promo-block-text">
+                            <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!--// end row -->
+        </div>
+    </div>
+    <!--========== SLIDER ==========-->
+    <!--========== PAGE LAYOUT ==========-->
+    <!-- About -->
+    <div id="about">
+        <div class="container content-lg">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
+                  				  				  				<p><span style="font-size: 1em;">说之前，可以推荐下各位使用这个开源库</span><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/Blankj/AndroidUtilCode"  target="_blank" rel="nofollow" style="font-size: 1em;">AndroidUtilCode</a><span style="font-size: 1em;">，下面提及到的工具类，都是在此库中</span></p> <blockquote> <p>以下说的解析包异常，是指<strong>进到安装页面就立马出现了错误提示</strong></p> <p>而不是在可以正常进入安装界面，然后点击了安装按钮之后后，最后弹出个安装失败的提示</p> </blockquote> <p>这两个情况是有所区别的,需要注意！！</p> <p>而下面总结的6种情况，第6种情况就是进入到安装界面了，然后点击安装按钮，出现了127的错误码提示</p> <p>当然，遇到的情况不多，可能总结不全，若是有所遗漏，各位可以在评论区回复下</p> <h2 id="总结">总结</h2> <ol> <li>apk下载过程中损坏</li> <li>安装的代码有问题（没有申请对应权限）</li> <li>高版本下载apk不成功（apk文件读取不到导致报错）</li> <li>存储权限未申请，Android8以上，没有申请允许应用安装未知应用的权限</li> <li>apk要使用v1+v2签名，v2是适用于Android7.0以上版本的安装</li> <li>Android12版本安装才出现的问题，原因是清单文件中需要声明exported属性</li> </ol> <h2 id="1apk下载过程中损坏">1.apk下载过程中损坏</h2> <p>这个情况，没有太多展开可以说的，比较少见，及网络下载过程中，apk文件损坏了，导致解析包出现异常</p> <h2 id="2安装apk代码有问题">2.安装apk代码有问题</h2> <p>这里统一推荐使用<code>AppUtils.installApp();</code>方法去安装apk，里面进行了Android8.0的版本兼容处理，包含安装第三方应用的权限申请</p> <p>动态申请前，别忘了需要在清单文件中声明此权限</p> <pre><code>&lt;uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" /&gt;</code></pre> <h2 id="3高版本下载apk不成功">3.高版本下载apk不成功</h2> <p>这个问题是我目前排查apk出现过的问题，由于之前的项目中，是固定下载在Download文件夹中，但是，在Android10之后，存储权限发生变更，导致无法直接将文件下载到Download文件夹，从而导致文件下载失败，进而导致出现解析包异常</p> <p>解决方法只要适配下Android10之后的路径问题即可</p> <p>这里推荐下载在app自己的files文件夹中即可解决问题，使用此路径<code>PathUtils.getExternalAppDownloadPath()</code>即可</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/dec42c24fb63913d107c0acb6d13e8f8.jpg" alt="关于Android安装apk出现解析包异常问题情况总结"></p> <h2 id="4权限未申请">4.权限未申请</h2> <p>这里需要说下有两种权限，一个是存储权限，另外一个则是安装第三方应用的权限</p> <pre><code>&lt;uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" /&gt;</code></pre> <p>存储权限的话，Android6.0需要手动申请，这里不再过多赘述</p> <h2 id="5apk签名问题">5.apk签名问题</h2> <p>这里也是比较常见的问题了，原因是我项目使用了360加固，然后，进行了重签名导致</p> <p>之前一直都是使用命令行进行重签名，没太注意到，其实v2的参数需要声明，加固后的安装包一直没有v2签名</p> <p>而Android7.0版本都是需要验证v2版本签名，自然是出现了问题</p> <p>之后进行了尝试，并且稍微封装了一个用来签名的工具，就不用每次都要输入命令了</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/6eb7e0c543388a3bba7267d417673fc5.jpg" alt="关于Android安装apk出现解析包异常问题情况总结"></p> <p>感兴趣的可看此链接<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://gitee.com/stars-one/ASCTool"  target="_blank" rel="nofollow">ASCTool: apk签名验证破解工具 Apk Signature Crack Tool</a></p> <h2 id="6android12版本安装出现问题">6.Android12版本安装出现问题</h2> <p>targetSdkVersion为31【以Android 12为目标】的应用务必要加入v2签名，务必要对使用的activity，service，broadcast receiver含有intent-filter，显示声明android:exported属性。</p> <p>AndroidManifest文件中，有intent-filter的属性的四大组件，需要声明exported属性为true</p> <p>即下面截图这种情况</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/c268531ab2e55014ceb5018d72be38d5.jpg" alt="关于Android安装apk出现解析包异常问题情况总结"></p> <blockquote> <p>如果适配安卓12的系统，调用的sdk是31的话。可能需要进行适配。</p> <p>出现安装失败22的，有可能是因为activity或者receiver，service里面没有加上android:exported="false"这个字段。</p> <p>注意在launcheractivity里面一定要设置android:exported为true。这个是外部引用的意思。</p> <p>如果在launcheractivity里面没有设置为true。那么APP图标点击就会出现未安装该应用程序。</p> <p>如果出现安装失败-127的话。是因为你的manifest里面声明的权限重复了。</p> </blockquote> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-94596.htm">ElasticSearch（五） 整合Spring-data-elasticsearch</a></p>
+                                        <p>下一个：<a href="/news/article-95339.htm">宠物店的粮适合买吗知乎推荐（宠物店卖的狗粮哪些牌子）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-3-11-free-subscribe-node.htm" title="韩国VPN | 3月11日23M/S|免费Clash/SSR/Shadowrocket/V2ray免费节点订阅分享">韩国VPN | 3月11日23M/S|免费Clash/SSR/Shadowrocket/V2ray免费节点订阅分享</a></li>
+                        <li class="py-2"><a href="/news/article-67424.htm" title="使用 Bitnami PostgreSQL Docker 镜像快速设置流复制集群">使用 Bitnami PostgreSQL Docker 镜像快速设置流复制集群</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-6-free-subscribe-node.htm" title="韩国VPN | 4月6日19M/S|免费V2ray/Shadowrocket/SSR/Clash免费节点订阅分享">韩国VPN | 4月6日19M/S|免费V2ray/Shadowrocket/SSR/Clash免费节点订阅分享</a></li>
+                        <li class="py-2"><a href="/news/article-87172.htm" title="猫粮狗粮属于多少类商标（猫粮狗粮成分区别）">猫粮狗粮属于多少类商标（猫粮狗粮成分区别）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-13-clash-v2ray-ss-ssr.htm" title="韩国VPN | 3月13日22.6M/S|免费Shadowrocket/Clash/V2ray/SSR免费节点订阅分享">韩国VPN | 3月13日22.6M/S|免费Shadowrocket/Clash/V2ray/SSR免费节点订阅分享</a></li>
+                        <li class="py-2"><a href="/news/article-65548.htm" title="狗狗疫苗可以自己打（狗狗疫苗自己打的免疫证怎么办）">狗狗疫苗可以自己打（狗狗疫苗自己打的免疫证怎么办）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-2-free-node-subscribe.htm" title="韩国VPN | 3月2日22.8M/S|免费SSR/Clash/Shadowrocket/V2ray免费节点订阅分享">韩国VPN | 3月2日22.8M/S|免费SSR/Clash/Shadowrocket/V2ray免费节点订阅分享</a></li>
+                        <li class="py-2"><a href="/news/article-71311.htm" title="Spring Security核心组件之安全上下文">Spring Security核心组件之安全上下文</a></li>
+                        <li class="py-2"><a href="/news/article-75981.htm" title="Bootstrap Blazor 实战 Menu 导航菜单使用">Bootstrap Blazor 实战 Menu 导航菜单使用</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-21-free-node-subscribe.htm" title="韩国VPN | 3月21日20.8M/S|免费Shadowrocket/Clash/SSR/V2ray免费节点订阅分享">韩国VPN | 3月21日20.8M/S|免费Shadowrocket/Clash/SSR/V2ray免费节点订阅分享</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">39</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">87</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End About -->
+    <!--========== END PAGE LAYOUT ==========-->
+        <!--========== FOOTER ==========-->
+    <footer class="footer">
+        <div class="content container">
+            <div class="row">
+                <div class="col-xs-12 text-center">
+                                        <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <p class="margin-b-0">
+                        <a href="/">韩国VPN 订阅机场节点官网</a> 版权所有
+                        <br />
+                        Powered by WordPress
+                    </p>
+                </div>
+            </div>
+            <!--// end row -->
+        </div>
+    </footer>
+    <!--========== END FOOTER ==========-->
+    <!-- Back To Top -->
+    <a href="javascript:void(0);" class="js-back-to-top back-to-top">Top</a>
+    <!-- JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+    <!-- CORE PLUGINS -->
+    <script src="/assets/website/js/frontend/bifrostv/jquery.min.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/bifrostv/jquery-migrate.min.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/bifrostv/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <!-- PAGE LEVEL PLUGINS -->
+    <script src="/assets/website/js/frontend/bifrostv/jquery.easing.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/bifrostv/jquery.back-to-top.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/bifrostv/jquery.smooth-scroll.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/bifrostv/jquery.wow.min.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/bifrostv/jquery.parallax.min.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/bifrostv/jquery.appear.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/bifrostv/masonry/jquery.masonry.pkgd.min.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/bifrostv/masonry/imagesloaded.pkgd.min.js" type="text/javascript"></script>
+    <!-- PAGE LEVEL SCRIPTS -->
+    <script src="/assets/website/js/frontend/bifrostv/layout.min.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/bifrostv/components/progress-bar.min.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/bifrostv/components/masonry.min.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/bifrostv/components/wow.min.js" type="text/javascript"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+
+</html>
