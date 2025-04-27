@@ -4,3 +4,7 @@
 .logo-wrap h1, .logo-wrap span {color: #fff;font-size: 4rem;font-weight: bold;}
 .top-nav-collapse .logo-wrap h1, .top-nav-collapse .logo-wrap span {color: #545454;}
 .xcblog-blog-list .item {margin-bottom: 1.5rem;}
+
+.xcblog-blog-detail.xcblog-blog-detail-defined p {font-size: 1.5rem;line-height: 2.2rem;}
+.xcblog-blog-detail.xcblog-blog-detail-defined h2 {font-size: 2.5rem;}
+.xcblog-blog-detail.xcblog-blog-detail-defined h3 {font-size: 2.0rem;}
