@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN" class="no-js">
+
+<head>
+        <link rel="canonical" href="https://koreavpn.github.io/news/article-109344.htm" />
+    <meta charset="utf-8" />
+    <title>MassTransit 入门详解</title>
+        <meta name="description" content="本文地址源码  MassTransit是一个面向.net的免费开源分布式应用程序框架。 MassTransit使得创建应用程序和服务变得很容易，这些应用程序和服务利用基于消息的、松散耦合的异步通信来获" />
+        <link rel="icon" href="/assets/website/img/bifrostv/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="韩国VPN 订阅机场节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://koreavpn.github.io/news/article-109344.htm" />
+    <meta property="og:site_name" content="韩国VPN 订阅机场节点官网" />
+    <meta property="og:title" content="MassTransit 入门详解" />
+    <meta property="og:image" content="https://koreavpn.github.io/uploads/20240907-1/1958757015a012655a1ea4bdeed06577.webp" />
+        <meta property="og:release_date" content="2025-05-02T09:21:54" />
+    <meta property="og:updated_time" content="2025-05-02T09:21:54" />
+        <meta property="og:description" content="本文地址源码  MassTransit是一个面向.net的免费开源分布式应用程序框架。 MassTransit使得创建应用程序和服务变得很容易，这些应用程序和服务利用基于消息的、松散耦合的异步通信来获" />
+        
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="MassTransit 入门详解">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    
+    <!-- GLOBAL MANDATORY STYLES -->
+    <link href="http://fonts.googleapis.com/css?family=Hind:300,400,500,600,700" rel="stylesheet" type="text/css">
+    <link href="/assets/website/js/frontend/bifrostv/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/website/js/frontend/bifrostv/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!-- PAGE LEVEL PLUGIN STYLES -->
+    <link href="/assets/website/css/bifrostv/animate.css" rel="stylesheet">
+    <!-- THEME STYLES -->
+    <link href="/assets/website/css/bifrostv/layout.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="/assets/website/css/G.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3BM4QTX515"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-3BM4QTX515');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+
+<body id="body" data-spy="scroll" data-target=".header" data-page="detail">
+        <!--========== HEADER ==========-->
+    <header class="header navbar-fixed-top">
+        <!-- Navbar -->
+        <nav class="navbar" role="navigation">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="menu-container">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="toggle-icon"></span>
+                    </button>
+                    <!-- Logo -->
+                    <div class="logo">
+                                                <a class="logo-wrap" href="/">
+                            <span>韩国VPN</span>
+                        </a>
+                                            </div>
+                    <!-- End Logo -->
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse nav-collapse">
+                    <div class="menu-container">
+                        <ul class="nav navbar-nav navbar-nav-right">
+                                                        <li class="nav-item"><a class="nav-item-child nav-item-hover" href="/">首页</a></li>
+                                                        <li class="nav-item"><a class="nav-item-child nav-item-hover" href="/free-nodes/">免费节点</a></li>
+                                                        <li class="nav-item"><a class="nav-item-child nav-item-hover" href="/paid-subscribe/">推荐机场</a></li>
+                                                        <li class="nav-item"><a class="nav-item-child nav-item-hover" href="/news/">新闻资讯</a></li>
+                                                        <li class="nav-item"><a class="nav-item-child nav-item-hover" href="/client.htm">客户端</a></li>
+                                                    </ul>
+                    </div>
+                </div>
+                <!-- End Navbar Collapse -->
+            </div>
+        </nav>
+        <!-- Navbar -->
+    </header>
+    <!--========== END HEADER ==========-->
+    <!--========== SLIDER ==========-->
+    <div class="promo-block parallax-window" data-parallax="scroll" data-image-src="/assets/website/img/bifrostv/1920x1080/01.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="promo-block-divider">
+                        <h1 class="promo-block-title">MassTransit 入门详解</h1>
+                        <p class="promo-block-text">
+                            <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!--// end row -->
+        </div>
+    </div>
+    <!--========== SLIDER ==========-->
+    <!--========== PAGE LAYOUT ==========-->
+    <!-- About -->
+    <div id="about">
+        <div class="container content-lg">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
+                <div class="xcblog-blog-detail xcblog-blog-detail-defined">
+                      				  				  				<p>本文地址源码</p> <ul> <li>MassTransit是一个面向.net的免费开源分布式应用程序框架。</li> <li>MassTransit使得创建应用程序和服务变得很容易，这些应用程序和服务利用基于消息的、松散耦合的异步通信来获得更高的可用性、可靠性和可伸缩性。</li> <li>MassTransit 8.x版本。</li> </ul> </h1> <ul> <li>添加Nuget包引用: <ul> <li>MassTransit</li> <li>MassTransit.RabbitMQ(演示也可基于内存)</li> </ul> </li> </ul> </h1> <ul> <li>配置MassTransit</li> </ul> <pre><code class="language-charp">builder.Services.AddMassTransit(x =&gt; {         // 使用内存     //x.UsingInMemory();     // 使用RabbitMq     x.UsingRabbitMq((context, config) =&gt;     {         config.Host("rabbitmq://localhost:5672", host =&gt;         {             host.Username("admin");             host.Password("admin");         });     }); });</code></pre> <ul> <li>定义消息体</li> </ul> <pre><code class="language-charp">public class OrderEto {     public Guid Id { get; init; }      public string Name { get; set; }          public DateTime CreationTime { get; set; } }</code></pre> <ul> <li>发布消息</li> </ul> <pre><code class="language-csharp">[ApiController] [Route("[controller]")] public class PublishController : ControllerBase {     private readonly ILogger&lt;PublishController&gt; _logger;     private readonly IPublishEndpoint _publishEndpoint;      public PublishController(ILogger&lt;PublishController&gt; logger, IPublishEndpoint publishEndpoint)     {         _logger = logger;         _publishEndpoint = publishEndpoint;     }      [HttpGet]     public async Task Get()     {         await _publishEndpoint.Publish&lt;OrderEto&gt;(new OrderEto()         {             Id = Guid.NewGuid(),             Name = "Phone",             CreationTime = DateTime.Now         });     } }</code></pre> </h1> <pre><code class="language-csharp">builder.Services.AddMassTransit(x =&gt; {          // 通过扫描程序集注册消费者     x.AddConsumers(typeof(Program).Assembly);         // 通过类型单个注册消费者     // x.AddConsumer&lt;OrderEtoConsumer&gt;(typeof(OrderEtoConsumerDefinition));          // x.SetKebabCaseEndpointNameFormatter();          // 通过泛型单个注册消费者     //x.AddConsumer&lt;OrderEtoConsumer, OrderEtoConsumerDefinition&gt;();          // 通过指定命名空间注册消费者     // x.AddConsumersFromNamespaceContaining&lt;OrderEtoConsumer&gt;();          // 使用内存队列     // x.UsingInMemory();     x.UsingRabbitMq((context, config) =&gt;     {                config.Host("rabbitmq://localhost:5672", hostconfig =&gt;         {             hostconfig.Username("admin");             hostconfig.Password("admin");         });                  config.ConfigureEndpoints(context);             }); });</code></pre> <ul> <li>消费者定义</li> </ul> <pre><code class="language-csharp">public class OrderEtoConsumer : IConsumer&lt;OrderEto&gt; {     private readonly ILogger&lt;OrderEtoConsumer&gt; _logger;      public OrderEtoConsumer(ILogger&lt;OrderEtoConsumer&gt; logger)     {         _logger = logger;     }      public Task Consume(ConsumeContext&lt;OrderEto&gt; context)     {         _logger.LogInformation($"MassTransit.Consumer.One 收到消息:{JsonSerializer.Serialize(context.Message)}");         return Task.CompletedTask;     } }  public class OrderEtoConsumerDefinition : ConsumerDefinition&lt;OrderEtoConsumer&gt; {     protected override void ConfigureConsumer(IReceiveEndpointConfigurator endpointConfigurator, IConsumerConfigurator&lt;OrderEtoConsumer&gt; consumerConfigurator)     {         endpointConfigurator.UseMessageRetry(r =&gt; r.Intervals(500, 1000));     } }</code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/4fdf4f6d0971d4dfa5d5af3b2cd495b4.jpg" alt="MassTransit 入门详解"></p> </h1> <ul> <li>Github地址</li> <li>文档地址</li> <li>演示地址</li> </ul> 			                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-109341.htm">PHP goto声明详解</a></p>
+                                        <p>下一个：<a href="/news/article-110194.htm">动物医院实践心得体会总结报告（动物医院实践心得2000）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-95339.htm" title="宠物店的粮适合买吗知乎推荐（宠物店卖的狗粮哪些牌子）">宠物店的粮适合买吗知乎推荐（宠物店卖的狗粮哪些牌子）</a></li>
+                        <li class="py-2"><a href="/news/article-102726.htm" title="Blazor 组件库 BootstrapBlazor 中Editor组件介绍">Blazor 组件库 BootstrapBlazor 中Editor组件介绍</a></li>
+                        <li class="py-2"><a href="/news/article-94134.htm" title="动物防疫站干嘛的工作（动物防疫站干嘛的工作人员）">动物防疫站干嘛的工作（动物防疫站干嘛的工作人员）</a></li>
+                        <li class="py-2"><a href="/news/article-96843.htm" title="jpa 原生SQL写法">jpa 原生SQL写法</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-9-free-v2ray.htm" title="韩国VPN | 4月9日21.7M/S|免费Shadowrocket/V2ray/SSR/Clash免费节点订阅分享">韩国VPN | 4月9日21.7M/S|免费Shadowrocket/V2ray/SSR/Clash免费节点订阅分享</a></li>
+                        <li class="py-2"><a href="/news/article-101163.htm" title="领养狗狗协议书样本（领养狗狗协议书范本）">领养狗狗协议书样本（领养狗狗协议书范本）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-5-3-free-v2ray.htm" title="韩国VPN | 5月3日22.1M/S|免费V2ray/Shadowrocket/SSR/Clash免费节点订阅分享">韩国VPN | 5月3日22.1M/S|免费V2ray/Shadowrocket/SSR/Clash免费节点订阅分享</a></li>
+                        <li class="py-2"><a href="/news/article-86464.htm" title="动物打疫苗注意事项及禁忌症（动物打疫苗后的不良反应）">动物打疫苗注意事项及禁忌症（动物打疫苗后的不良反应）</a></li>
+                        <li class="py-2"><a href="/news/article-108505.htm" title="动物疫苗批号查询网站官网首页（动物疫苗批准文号）">动物疫苗批号查询网站官网首页（动物疫苗批准文号）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-28-free-subscribe-node.htm" title="韩国VPN | 4月28日21.7M/S|免费SSR/Clash/V2ray/Shadowrocket免费节点订阅分享">韩国VPN | 4月28日21.7M/S|免费SSR/Clash/V2ray/Shadowrocket免费节点订阅分享</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">14</span> <a href="/date/2025-05/" title="2025-05 归档">2025-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">82</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End About -->
+    <!--========== END PAGE LAYOUT ==========-->
+        <!--========== FOOTER ==========-->
+    <footer class="footer">
+        <div class="content container">
+            <div class="row">
+                <div class="col-xs-12 text-center">
+                                        <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <p class="margin-b-0">
+                        <a href="/">韩国VPN 订阅机场节点官网</a> 版权所有
+                        <br />
+                        Powered by WordPress
+                    </p>
+                </div>
+            </div>
+            <!--// end row -->
+        </div>
+    </footer>
+    <!--========== END FOOTER ==========-->
+    <!-- Back To Top -->
+    <a href="javascript:void(0);" class="js-back-to-top back-to-top">Top</a>
+    <!-- JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+    <!-- CORE PLUGINS -->
+    <script src="/assets/website/js/frontend/bifrostv/jquery.min.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/bifrostv/jquery-migrate.min.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/bifrostv/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <!-- PAGE LEVEL PLUGINS -->
+    <script src="/assets/website/js/frontend/bifrostv/jquery.easing.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/bifrostv/jquery.back-to-top.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/bifrostv/jquery.smooth-scroll.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/bifrostv/jquery.wow.min.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/bifrostv/jquery.parallax.min.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/bifrostv/jquery.appear.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/bifrostv/masonry/jquery.masonry.pkgd.min.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/bifrostv/masonry/imagesloaded.pkgd.min.js" type="text/javascript"></script>
+    <!-- PAGE LEVEL SCRIPTS -->
+    <script src="/assets/website/js/frontend/bifrostv/layout.min.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/bifrostv/components/progress-bar.min.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/bifrostv/components/masonry.min.js" type="text/javascript"></script>
+    <script src="/assets/website/js/frontend/bifrostv/components/wow.min.js" type="text/javascript"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+
+</html>
