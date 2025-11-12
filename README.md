@@ -1,4 +1,4 @@
-# 韩国VPN | 11月6日20.8M/S|免费Singbox节点/Clash节点/SSR节点/V2ray节点/Shadowrocket节点免费节点订阅分享  更新时间 2025-11-06 08:20:56
+# 韩国VPN | 11月12日21.7M/S|免费SSR节点/Shadowrocket节点/Singbox节点/Clash节点/V2ray节点免费节点订阅分享  更新时间 2025-11-12 09:12:44
 所有免费clash节点都爬取自网络，请勿用于非法用途 。节点地址：<a href="https://koreavpn.github.io" target="_blank">点击跳转</a>
 
 ## clash使用教程：
@@ -9,23 +9,23 @@
 
 ### 免费Clash节点订阅链接
 
-- https://koreavpn.github.io/uploads/2025/11/0-20251106.yaml
-- https://koreavpn.github.io/uploads/2025/11/1-20251106.yaml
-- https://koreavpn.github.io/uploads/2025/11/2-20251106.yaml
-- https://koreavpn.github.io/uploads/2025/11/3-20251106.yaml
-- https://koreavpn.github.io/uploads/2025/11/4-20251106.yaml
+- https://koreavpn.github.io/uploads/2025/11/0-20251112.yaml
+- https://koreavpn.github.io/uploads/2025/11/1-20251112.yaml
+- https://koreavpn.github.io/uploads/2025/11/2-20251112.yaml
+- https://koreavpn.github.io/uploads/2025/11/3-20251112.yaml
+- https://koreavpn.github.io/uploads/2025/11/4-20251112.yaml
 
 ### 免费V2ray节点订阅链接
 
-- https://koreavpn.github.io/uploads/2025/11/0-20251106.txt
-- https://koreavpn.github.io/uploads/2025/11/1-20251106.txt
-- https://koreavpn.github.io/uploads/2025/11/2-20251106.txt
-- https://koreavpn.github.io/uploads/2025/11/3-20251106.txt
-- https://koreavpn.github.io/uploads/2025/11/4-20251106.txt
+- https://koreavpn.github.io/uploads/2025/11/0-20251112.txt
+- https://koreavpn.github.io/uploads/2025/11/1-20251112.txt
+- https://koreavpn.github.io/uploads/2025/11/2-20251112.txt
+- https://koreavpn.github.io/uploads/2025/11/3-20251112.txt
+- https://koreavpn.github.io/uploads/2025/11/4-20251112.txt
 
 ### 免费Sing-box节点订阅链接
 
-- https://koreavpn.github.io/uploads/2025/11/20251106.json
+- https://koreavpn.github.io/uploads/2025/11/20251112.json
 
 ## 更多Clash节点订阅 ：
 

@@ -230,9 +230,9 @@ iptables -I OUTPUT -p tcp --sport 1080 -j ACCEPT
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Trojan-go 如何启用 WebSocket 支持？</h5></div>
+    <div class="panel-heading"><h5>WinXray 是否支持订阅自动更新？</h5></div>
     <div class="panel-body">
-        在配置文件中将 transport 参数设置为 websocket，并指定 path 路径。客户端需同步使用相同路径及主机名。这样可将 Trojan 流量伪装为普通 WebSocket 通信以提升隐蔽性。<hr />    </div>
+        是的，WinXray 支持定时订阅更新。用户可在设置中开启自动更新周期（如每天或每小时），程序会自动下载新节点并替换旧配置，确保使用最新的线路资源。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Clash 如何配置策略组优先节点？</h5></div>
@@ -240,9 +240,9 @@ iptables -I OUTPUT -p tcp --sport 1080 -j ACCEPT
         在 Clash 中，用户可以通过策略组设置节点优先级，优先使用延迟低、稳定性高的节点。结合规则文件，可以根据域名或 IP 自动选择最优节点，实现更高效的网络访问体验。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>QuantumultX 如何实现按端口和协议分流？</h5></div>
+    <div class="panel-heading"><h5>Trojan-go 如何启用 WebSocket 支持？</h5></div>
     <div class="panel-body">
-        QuantumultX 支持按 TCP、UDP、端口及应用协议分流流量，结合策略组选择最优节点。可为游戏、视频和广告屏蔽提供最佳网络体验，提高访问速度和稳定性。<hr />    </div>
+        在配置文件中将 transport 参数设置为 websocket，并指定 path 路径。客户端需同步使用相同路径及主机名。这样可将 Trojan 流量伪装为普通 WebSocket 通信以提升隐蔽性。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>VLESS + Reality 模式如何隐藏流量特征？</h5></div>
@@ -250,24 +250,14 @@ iptables -I OUTPUT -p tcp --sport 1080 -j ACCEPT
         Reality 模式通过伪装握手和真实网站特征，使流量难以被 DPI 检测。结合策略组使用，可有效隐藏节点通信特征，同时保持安全和高速传输，适合高封锁环境。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Hysteria2 支持多用户配置吗？</h5></div>
-    <div class="panel-body">
-        Hysteria2 支持多用户配置，管理员可以在服务器端为不同用户分配独立凭证。这样既能保障隐私，也便于流量统计和限速控制，适合团队或小型共享环境。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Sing-box 可以替换 Clash 配置文件吗？</h5></div>
-    <div class="panel-body">
-        Sing-box 支持直接解析 Clash YAML 配置，并转换为自身 JSON 格式。节点、策略组和规则基本兼容，但部分自定义脚本可能需要手动调整才能完全使用。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Clash 的 Rule Provider 有什么作用？</h5></div>
-    <div class="panel-body">
-        Rule Provider 是 Clash 的规则分发机制。用户可以订阅不同的规则集，比如广告拦截、社交媒体、流媒体等，实现按需加载。它让配置文件更加简洁、动态更新，并支持多源规则管理。<hr />    </div>
-</div>
-<div class="panel panel-default">
     <div class="panel-heading"><h5>Netch 支持游戏加速吗？</h5></div>
     <div class="panel-body">
         Netch 专为游戏加速设计，支持 UDP 转发和 TAP 驱动，可有效降低延迟。用户可以为特定游戏添加路由规则，实现分流加速，从而提升国际游戏体验。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Hysteria2 支持多用户配置吗？</h5></div>
+    <div class="panel-body">
+        Hysteria2 支持多用户配置，管理员可以在服务器端为不同用户分配独立凭证。这样既能保障隐私，也便于流量统计和限速控制，适合团队或小型共享环境。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>V2Ray QUIC 传输适合什么网络环境？</h5></div>
@@ -275,9 +265,19 @@ iptables -I OUTPUT -p tcp --sport 1080 -j ACCEPT
         QUIC 基于 UDP 支持多路复用和零握手，降低延迟，提高吞吐量。适合高丢包、不稳定网络环境，可保证视频、游戏和即时通讯流量的稳定性和流畅体验。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>WinXray 是否支持订阅自动更新？</h5></div>
+    <div class="panel-heading"><h5>Clash 的 Rule Provider 有什么作用？</h5></div>
     <div class="panel-body">
-        是的，WinXray 支持定时订阅更新。用户可在设置中开启自动更新周期（如每天或每小时），程序会自动下载新节点并替换旧配置，确保使用最新的线路资源。    </div>
+        Rule Provider 是 Clash 的规则分发机制。用户可以订阅不同的规则集，比如广告拦截、社交媒体、流媒体等，实现按需加载。它让配置文件更加简洁、动态更新，并支持多源规则管理。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Sing-box 可以替换 Clash 配置文件吗？</h5></div>
+    <div class="panel-body">
+        Sing-box 支持直接解析 Clash YAML 配置，并转换为自身 JSON 格式。节点、策略组和规则基本兼容，但部分自定义脚本可能需要手动调整才能完全使用。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>QuantumultX 如何实现按端口和协议分流？</h5></div>
+    <div class="panel-body">
+        QuantumultX 支持按 TCP、UDP、端口及应用协议分流流量，结合策略组选择最优节点。可为游戏、视频和广告屏蔽提供最佳网络体验，提高访问速度和稳定性。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -306,16 +306,16 @@ iptables -I OUTPUT -p tcp --sport 1080 -j ACCEPT
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2025-10-5-share-vpn.htm" title="韩国VPN | 10月5日21.2M/S|免费Clash节点/Singbox节点/Shadowrocket节点/V2ray节点/SSR节点免费节点订阅分享">韩国VPN | 10月5日21.2M/S|免费Clash节点/Singbox节点/Shadowrocket节点/V2ray节点/SSR节点免费节点订阅分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-10-12-free-vpn.htm" title="韩国VPN | 10月12日21.8M/S|免费V2ray节点/SSR节点/Clash节点/Singbox节点/Shadowrocket节点免费节点订阅分享">韩国VPN | 10月12日21.8M/S|免费V2ray节点/SSR节点/Clash节点/Singbox节点/Shadowrocket节点免费节点订阅分享</a></li>
                         <li class="py-2"><a href="/free-nodes/2025-10-27-node-share-links.htm" title="韩国VPN | 10月27日20M/S|免费Clash节点/Shadowrocket节点/Singbox节点/SSR节点/V2ray节点免费节点订阅分享">韩国VPN | 10月27日20M/S|免费Clash节点/Shadowrocket节点/Singbox节点/SSR节点/V2ray节点免费节点订阅分享</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-10-vpn-github.htm" title="韩国VPN | 10月10日20.5M/S|免费Singbox节点/Shadowrocket节点/V2ray节点/Clash节点/SSR节点免费节点订阅分享">韩国VPN | 10月10日20.5M/S|免费Singbox节点/Shadowrocket节点/V2ray节点/Clash节点/SSR节点免费节点订阅分享</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-4-node-share-links.htm" title="韩国VPN | 10月4日22.5M/S|免费Clash节点/Singbox节点/Shadowrocket节点/SSR节点/V2ray节点免费节点订阅分享">韩国VPN | 10月4日22.5M/S|免费Clash节点/Singbox节点/Shadowrocket节点/SSR节点/V2ray节点免费节点订阅分享</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-3-share-vpn.htm" title="韩国VPN | 11月3日21.6M/S|免费SSR节点/Clash节点/V2ray节点/Shadowrocket节点/Singbox节点免费节点订阅分享">韩国VPN | 11月3日21.6M/S|免费SSR节点/Clash节点/V2ray节点/Shadowrocket节点/Singbox节点免费节点订阅分享</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-13-free-vpn.htm" title="韩国VPN | 10月13日21.9M/S|免费SSR节点/V2ray节点/Clash节点/Shadowrocket节点/Singbox节点免费节点订阅分享">韩国VPN | 10月13日21.9M/S|免费SSR节点/V2ray节点/Clash节点/Shadowrocket节点/Singbox节点免费节点订阅分享</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-24-vpn-free.htm" title="韩国VPN | 10月24日19.3M/S|免费Shadowrocket节点/SSR节点/Singbox节点/V2ray节点/Clash节点免费节点订阅分享">韩国VPN | 10月24日19.3M/S|免费Shadowrocket节点/SSR节点/Singbox节点/V2ray节点/Clash节点免费节点订阅分享</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-8-top-vpn-node.htm" title="韩国VPN | 10月8日19.7M/S|免费V2ray节点/Singbox节点/Clash节点/SSR节点/Shadowrocket节点免费节点订阅分享">韩国VPN | 10月8日19.7M/S|免费V2ray节点/Singbox节点/Clash节点/SSR节点/Shadowrocket节点免费节点订阅分享</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-31-top-vpn-node.htm" title="韩国VPN | 10月31日20.4M/S|免费Singbox节点/SSR节点/Shadowrocket节点/V2ray节点/Clash节点免费节点订阅分享">韩国VPN | 10月31日20.4M/S|免费Singbox节点/SSR节点/Shadowrocket节点/V2ray节点/Clash节点免费节点订阅分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-10-5-share-vpn.htm" title="韩国VPN | 10月5日21.2M/S|免费Clash节点/Singbox节点/Shadowrocket节点/V2ray节点/SSR节点免费节点订阅分享">韩国VPN | 10月5日21.2M/S|免费Clash节点/Singbox节点/Shadowrocket节点/V2ray节点/SSR节点免费节点订阅分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-10-9-mianfei-vpn.htm" title="韩国VPN | 10月9日19.9M/S|免费Clash节点/Singbox节点/SSR节点/Shadowrocket节点/V2ray节点免费节点订阅分享">韩国VPN | 10月9日19.9M/S|免费Clash节点/Singbox节点/SSR节点/Shadowrocket节点/V2ray节点免费节点订阅分享</a></li>
                         <li class="py-2"><a href="/free-nodes/2025-10-3-node-share-links.htm" title="韩国VPN | 10月3日19.8M/S|免费V2ray节点/SSR节点/Clash节点/Shadowrocket节点/Singbox节点免费节点订阅分享">韩国VPN | 10月3日19.8M/S|免费V2ray节点/SSR节点/Clash节点/Shadowrocket节点/Singbox节点免费节点订阅分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-10-21-free-vpn-node.htm" title="韩国VPN | 10月21日21.5M/S|免费Shadowrocket节点/SSR节点/Singbox节点/Clash节点/V2ray节点免费节点订阅分享">韩国VPN | 10月21日21.5M/S|免费Shadowrocket节点/SSR节点/Singbox节点/Clash节点/V2ray节点免费节点订阅分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-10-22-free-node-subscribe.htm" title="韩国VPN | 10月22日21.8M/S|免费Shadowrocket节点/Singbox节点/V2ray节点/SSR节点/Clash节点免费节点订阅分享">韩国VPN | 10月22日21.8M/S|免费Shadowrocket节点/Singbox节点/V2ray节点/SSR节点/Clash节点免费节点订阅分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-6-vpn-node.htm" title="韩国VPN | 11月6日21.7M/S|免费Singbox节点/Shadowrocket节点/V2ray节点/Clash节点/SSR节点免费节点订阅分享">韩国VPN | 11月6日21.7M/S|免费Singbox节点/Shadowrocket节点/V2ray节点/Clash节点/SSR节点免费节点订阅分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-10-4-node-share-links.htm" title="韩国VPN | 10月4日22.5M/S|免费Clash节点/Singbox节点/Shadowrocket节点/SSR节点/V2ray节点免费节点订阅分享">韩国VPN | 10月4日22.5M/S|免费Clash节点/Singbox节点/Shadowrocket节点/SSR节点/V2ray节点免费节点订阅分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-10-10-vpn-github.htm" title="韩国VPN | 10月10日20.5M/S|免费Singbox节点/Shadowrocket节点/V2ray节点/Clash节点/SSR节点免费节点订阅分享">韩国VPN | 10月10日20.5M/S|免费Singbox节点/Shadowrocket节点/V2ray节点/Clash节点/SSR节点免费节点订阅分享</a></li>
                     </ul>
     </div>
 </div>
@@ -327,7 +327,7 @@ iptables -I OUTPUT -p tcp --sport 1080 -j ACCEPT
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-11/" title="2025-11 归档">2025-11</a></h4>
+                <h4><span class="badge" style="float: right;">12</span> <a href="/date/2025-11/" title="2025-11 归档">2025-11</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">26</span> <a href="/date/2025-10/" title="2025-10 归档">2025-10</a></h4>
