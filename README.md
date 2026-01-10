@@ -1,4 +1,4 @@
-# 韩国VPN | 1月3日20.2M/S|免费Clash节点/Shadowrocket节点/V2ray节点/Singbox节点/SSR节点免费节点订阅分享  更新时间 2026-01-03 10:41:48
+# 韩国VPN | 1月10日18.4M/S|免费Singbox节点/SSR节点/Shadowrocket节点/V2ray节点/Clash节点免费节点订阅分享  更新时间 2026-01-10 10:52:04
 所有免费clash节点都爬取自网络，请勿用于非法用途 。节点地址：<a href="https://koreavpn.github.io" target="_blank">点击跳转</a>
 
 ## clash使用教程：
@@ -9,23 +9,23 @@
 
 ### 免费Clash节点订阅链接
 
-- https://koreavpn.github.io/uploads/2026/01/0-20260103.yaml
-- https://koreavpn.github.io/uploads/2026/01/1-20260103.yaml
-- https://koreavpn.github.io/uploads/2026/01/2-20260103.yaml
-- https://koreavpn.github.io/uploads/2026/01/3-20260103.yaml
-- https://koreavpn.github.io/uploads/2026/01/4-20260103.yaml
+- https://koreavpn.github.io/uploads/2026/01/0-20260110.yaml
+- https://koreavpn.github.io/uploads/2026/01/1-20260110.yaml
+- https://koreavpn.github.io/uploads/2026/01/2-20260110.yaml
+- https://koreavpn.github.io/uploads/2026/01/3-20260110.yaml
+- https://koreavpn.github.io/uploads/2026/01/4-20260110.yaml
 
 ### 免费V2ray节点订阅链接
 
-- https://koreavpn.github.io/uploads/2026/01/0-20260103.txt
-- https://koreavpn.github.io/uploads/2026/01/1-20260103.txt
-- https://koreavpn.github.io/uploads/2026/01/2-20260103.txt
-- https://koreavpn.github.io/uploads/2026/01/3-20260103.txt
-- https://koreavpn.github.io/uploads/2026/01/4-20260103.txt
+- https://koreavpn.github.io/uploads/2026/01/0-20260110.txt
+- https://koreavpn.github.io/uploads/2026/01/1-20260110.txt
+- https://koreavpn.github.io/uploads/2026/01/2-20260110.txt
+- https://koreavpn.github.io/uploads/2026/01/3-20260110.txt
+- https://koreavpn.github.io/uploads/2026/01/4-20260110.txt
 
 ### 免费Sing-box节点订阅链接
 
-- https://koreavpn.github.io/uploads/2026/01/20260103.json
+- https://koreavpn.github.io/uploads/2026/01/20260110.json
 
 ## 更多Clash节点订阅 ：
 
