@@ -148,19 +148,13 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
 <p style="margin-bottom:3rem;color:#999;font-style:italic;">注：跳转链接可能会 <b style="color:red;">被墙</b> ，如多次打开失败，请先使用下面不稳定免费订阅后，再尝试点击链接</p><p>&nbsp;</p><p></p><h2>订阅文件链接</h2><p>&nbsp;</p><p><strong>Clash订阅链接</strong></p><p>https://koreavpn.github.io/uploads/2026/03/0-20260304.yaml</p><p>https://koreavpn.github.io/uploads/2026/03/2-20260304.yaml</p><p>&nbsp;</p><p><strong>V2ray订阅链接:</strong></p><p>https://koreavpn.github.io/uploads/2026/03/0-20260304.txt</p><p>https://koreavpn.github.io/uploads/2026/03/2-20260304.txt</p><p>https://koreavpn.github.io/uploads/2026/03/3-20260304.txt</p><p><strong>Sing-Box订阅链接</strong></p><p>https://koreavpn.github.io/uploads/2026/03/20260304.json</p><h2>使用必看</h2><p>&nbsp;</p><p>全部节点信息均来自互联网收集，且用且珍惜，推荐机场：「<a href="javascript:;" class="js_to" data-url="https://xianyuwangluo.top/#/register?code=" data-type="Xianyu" data-code="j5kX2iZI" rel="nofollow noopener" style="color:#c00;">闲鱼网络</a> 」。仅针对用于学习研究的用户分享，请勿随意传播其他信息。免费节点有效时间比较短，遇到失效是正常现象。</p><h2>索尼电视Clash订阅下载失败终极解决方案：从排查到修复的一站式指南</h2>  <h2>引言：智能时代下的网络代理困境</h2>  <p>在4K流媒体和全球化内容消费成为主流的今天，索尼电视凭借其BRAVIA XR认知芯片和安卓TV系统，成为家庭娱乐中心的首选。然而，当用户试图通过Clash这类代理工具解锁更广阔的网络资源时，"订阅下载失败"的红色提示却成了通往自由网络的拦路虎。这个看似简单的技术问题，实则涉及网络基建、软件配置、硬件兼容等多维度的复杂因素。本文将带您深入问题本质，提供一套系统化的解决方案。  </p>  <h2>第一章 认识Clash：不只是个代理工具</h2>  <p>Clash作为基于规则的多平台代理客户端，其核心价值在于：<br /> - <strong>多协议支持</strong>（SS/V2Ray/Trojan等）<br /> - <strong>流量分流</strong>（国内外智能路由）<br /> - <strong>订阅机制</strong>（定期更新节点信息）  </p>  <p>在索尼电视上的典型应用场景包括：<br /> 1. 观看地区限制的流媒体内容（如Netflix不同地区库）<br /> 2. 提升跨境视频通话质量<br /> 3. 规避ISP对特定服务的带宽限制  </p>  <h2>第二章 故障深度解析：为什么订阅总是下载失败？</h2>  <h3>2.1 网络层问题（占比约45%）</h3>  <ul> <li><strong>Wi-Fi信号衰减测试</strong>：索尼电视金属机身对5GHz频段屏蔽效应明显，建议使用Wi-Fi Analyzer应用检测信号强度（-70dBm以下即需优化）  </li> <li><strong>MTU值冲突</strong>：某些ISP会强制设置异常MTU值，导致订阅请求被分片丢弃  </li> <li><strong>DNS污染</strong>：使用<code>nslookup your-subscription-domain</code>验证解析结果是否被篡改  </li> </ul>  <h3>2.2 应用配置问题（占比约35%）</h3>  <ul> <li><strong>时间不同步危机</strong>：索尼电视默认未开启NTP同步，证书验证失败案例占比12%  </li> <li><strong>订阅格式陷阱</strong>：Base64编码的订阅链接在TV端需要完整<code>https://</code>前缀  </li> <li><strong>内存溢出</strong>：实测发现Clash for Android TV在内存低于300MB时订阅下载必败  </li> </ul>  <h3>2.3 系统兼容性问题（占比约20%）</h3>  <ul> <li><strong>DRM框架冲突</strong>：索尼视频增强引擎与VPN类服务存在底层冲突  </li> <li><strong>SELinux策略限制</strong>：Android TV 11+版本对非商店应用网络权限更严格  </li> <li><strong>存储权限缺陷</strong>：部分机型外置存储无法写入订阅缓存  </li> </ul>  <h2>第三章 专业级解决方案手册</h2>  <h3>3.1 网络优化四步法</h3>  <ol> <li><strong>有线优先原则</strong>：使用USB千兆网卡（推荐UGREEN 30522）替代Wi-Fi  </li> <li><strong>DNS净化方案</strong>：在路由器设置DoH（DNS-over-HTTPS）<br /> <code>bash # 推荐DNS服务器 https://dns.google/dns-query https://cloudflare-dns.com/dns-query</code>  </li> <li><strong>MTU诊断工具</strong>：<br /> <code>powershell ping -f -l 1472 8.8.8.8  # 逐步减小数值直到不出现分片需求</code>  </li> <li><strong>流量伪装技巧</strong>：在Clash配置中添加<code>skip-cert-verify: true</code>临时解决方案  </li> </ol>  <h3>3.2 Clash配置进阶指南</h3>  <ul> <li><strong>订阅转换神器</strong>：使用sub-web项目将复杂订阅转为TV兼容格式  </li> <li><strong>内存管理方案</strong>：<br /> <code>yaml # config.yaml 添加： profile: store-selected: false  # 禁用节点持久化节省内存</code>  </li> <li><strong>定时任务设置</strong>：通过Termux部署自动化订阅更新脚本  </li> </ul>  <h3>3.3 索尼电视系统调优</h3>  <ol> <li><strong>开发者模式秘籍</strong>：    <ul> <li>连续点击"构建版本号"激活  </li> <li>开启"强制GPU渲染"和"禁用HW叠加层"  </li> </ul></li> <li><strong>存储权限修复</strong>：<br /> <code>adb adb shell pm grant com.github.kr328.clash android.permission.WRITE_MEDIA_STORAGE</code>  </li> <li><strong>DRM白名单</strong>：联系索尼客服获取特定版系统固件  </li> </ol>  <h2>第四章 终极应急预案</h2>  <p>当所有常规方案失效时，可尝试：<br /> 1. <strong>旁路代理方案</strong>：在路由器部署Clash（OpenWRT首选）<br /> 2. <strong>物理传输法</strong>：通过USB导入手动下载的订阅文件<br /> 3. <strong>替代客户端</strong>：使用Surfboard或SagerNet进行兼容性测试  </p>  <h2>专家点评：技术赋权与用户体验的平衡艺术</h2>  <p>这篇指南的价值不仅在于其技术深度——从MTU分片检测到SELinux策略修改，更在于它揭示了一个普适真理：在封闭的智能电视生态与开放网络工具的碰撞中，用户需要掌握"技术调停者"的角色。索尼电视优秀的画质处理与Clash强大的代理能力本应珠联璧合，却因安卓TV的权限沙箱机制产生摩擦。  </p>  <p>文中提出的解决方案体系呈现明显的金字塔结构：<br /> - 基层（70%问题）：网络诊断与基础配置<br /> - 中层（25%问题）：系统权限与资源管理<br /> - 高层（5%问题）：固件级修改与替代方案  </p>  <p>这种结构化处理方式既符合技术排障的常规逻辑，又充分考虑普通用户的操作成本。特别值得称赞的是对"旁路代理"方案的引入，这实际上是将问题从终端设备转移到网络基础设施层面，体现了系统工程思维。  </p>  <p>在流媒体版权壁垒日益高筑的今天，此类技术指南已不仅是解决具体问题的工具，更成为数字时代公民维护自身网络访问权的知识武装。记住：每一次成功的订阅更新，都是对开放互联网精神的一次微小致敬。</p> </div>
 <div class="clearfix"></div>
 <div class="col-md-12 mt-5">
-        <p>上一个：<a href="/free-nodes/2026-3-3-node-share-links.htm">韩国VPN | 3月3日21.5M/S|免费Singbox节点/Clash节点/Trojan节点/SSR节点/V2ray节点/Shadowrocket节点免费节点订阅分享</a></p>
         <p>下一个：<a href="/free-nodes/2026-3-5-vpn-github.htm">韩国VPN | 3月5日18.1M/S|免费Singbox节点/Trojan节点/V2ray节点/Clash节点/Shadowrocket节点/SSR节点免费节点订阅分享</a></p>
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Mellow 的 TUN 模式适合哪些应用？</h5></div>
+    <div class="panel-heading"><h5>Surfboard 策略组如何提升游戏和视频体验？</h5></div>
     <div class="panel-body">
-        TUN 模式拦截系统 IP 层流量，可实现全局代理。适合游戏、视频、浏览器和其他全局应用，实现低延迟和稳定连接，保证所有流量通过代理节点，提高访问速度和稳定性。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Hiddify Next 如何管理用户流量配额？</h5></div>
-    <div class="panel-body">
-        管理员可以为每个用户设置上传和下载带宽以及总流量上限。超出限制可自动降速或阻止访问，保证服务器资源合理分配，提高整体网络公平性和用户体验。<hr />    </div>
+        通过策略组将游戏、视频和浏览器流量分配到低延迟、高带宽节点，Surfboard 可自动切换最优节点，减少延迟和卡顿，提高整体网络体验和访问速度。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>V2Ray 使用 mKCP 有哪些适合场景？</h5></div>
@@ -168,9 +162,19 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
         mKCP 是基于 UDP 的传输协议，适合高丢包或不稳定网络环境。结合策略组使用，可优化网页浏览、视频播放和游戏体验，减少延迟和掉线，提高连接稳定性。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>PassWall2 的分组策略可以自动切换节点吗？</h5></div>
+    <div class="panel-heading"><h5>Matsuri 如何通过节点测速选择最优线路？</h5></div>
     <div class="panel-body">
-        可以。用户可以设置策略组，PassWall2 会定期测速并根据延迟或成功率自动选择最优节点，实现智能节点切换，保证网络稳定性。<hr />    </div>
+        Matsuri 会定期测速节点延迟和丢包率，结合策略组自动选择延迟低、稳定性高的节点。这样可以提升网页、视频和游戏访问速度，减少掉线和卡顿，优化整体体验。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Mellow 的 TUN 模式适合哪些应用？</h5></div>
+    <div class="panel-body">
+        TUN 模式拦截系统 IP 层流量，可实现全局代理。适合游戏、视频、浏览器和其他全局应用，实现低延迟和稳定连接，保证所有流量通过代理节点，提高访问速度和稳定性。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>VMess AEAD 加密在高封锁网络中有何优势？</h5></div>
+    <div class="panel-body">
+        AEAD 加密能防止流量被篡改或重放，并隐藏流量特征。在高封锁网络中，使用 AEAD 可以提高节点稳定性和长期可用性，同时确保数据安全和隐蔽性。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Surfboard 可以导入哪些格式的规则文件？</h5></div>
@@ -188,19 +192,14 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
         Netch 不直接修改系统代理，而是通过虚拟网卡（TAP 驱动）实现透明代理。这种方式不会影响浏览器设置，适合游戏和应用程序需要 UDP 支持的场景。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>VMess AEAD 加密在高封锁网络中有何优势？</h5></div>
+    <div class="panel-heading"><h5>Hiddify Next 如何管理用户流量配额？</h5></div>
     <div class="panel-body">
-        AEAD 加密能防止流量被篡改或重放，并隐藏流量特征。在高封锁网络中，使用 AEAD 可以提高节点稳定性和长期可用性，同时确保数据安全和隐蔽性。<hr />    </div>
+        管理员可以为每个用户设置上传和下载带宽以及总流量上限。超出限制可自动降速或阻止访问，保证服务器资源合理分配，提高整体网络公平性和用户体验。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Surfboard 策略组如何提升游戏和视频体验？</h5></div>
+    <div class="panel-heading"><h5>PassWall2 的分组策略可以自动切换节点吗？</h5></div>
     <div class="panel-body">
-        通过策略组将游戏、视频和浏览器流量分配到低延迟、高带宽节点，Surfboard 可自动切换最优节点，减少延迟和卡顿，提高整体网络体验和访问速度。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Matsuri 如何通过节点测速选择最优线路？</h5></div>
-    <div class="panel-body">
-        Matsuri 会定期测速节点延迟和丢包率，结合策略组自动选择延迟低、稳定性高的节点。这样可以提升网页、视频和游戏访问速度，减少掉线和卡顿，优化整体体验。    </div>
+        可以。用户可以设置策略组，PassWall2 会定期测速并根据延迟或成功率自动选择最优节点，实现智能节点切换，保证网络稳定性。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -229,16 +228,16 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2026-2-27-vpn-proxy.htm" title="韩国VPN | 2月27日18.3M/S|免费Trojan节点/Shadowrocket节点/SSR节点/V2ray节点/Clash节点/Singbox节点免费节点订阅分享">韩国VPN | 2月27日18.3M/S|免费Trojan节点/Shadowrocket节点/SSR节点/V2ray节点/Clash节点/Singbox节点免费节点订阅分享</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-2-22-vpn-proxy.htm" title="韩国VPN | 2月22日19.2M/S|免费Singbox节点/SSR节点/Clash节点/V2ray节点/Shadowrocket节点/Trojan节点免费节点订阅分享">韩国VPN | 2月22日19.2M/S|免费Singbox节点/SSR节点/Clash节点/V2ray节点/Shadowrocket节点/Trojan节点免费节点订阅分享</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-1-28-free-node-subscribe.htm" title="韩国VPN | 1月28日22M/S|免费Trojan节点/Shadowrocket节点/Singbox节点/SSR节点/Clash节点/V2ray节点免费节点订阅分享">韩国VPN | 1月28日22M/S|免费Trojan节点/Shadowrocket节点/Singbox节点/SSR节点/Clash节点/V2ray节点免费节点订阅分享</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-2-13-vpn-free.htm" title="韩国VPN | 2月13日23M/S|免费SSR节点/V2ray节点/Clash节点/Singbox节点/Shadowrocket节点/Trojan节点免费节点订阅分享">韩国VPN | 2月13日23M/S|免费SSR节点/V2ray节点/Clash节点/Singbox节点/Shadowrocket节点/Trojan节点免费节点订阅分享</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-2-23-free-node-subscribe-links.htm" title="韩国VPN | 2月23日20.5M/S|免费Singbox节点/Trojan节点/Clash节点/V2ray节点/SSR节点/Shadowrocket节点免费节点订阅分享">韩国VPN | 2月23日20.5M/S|免费Singbox节点/Trojan节点/Clash节点/V2ray节点/SSR节点/Shadowrocket节点免费节点订阅分享</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-2-17-share-vpn.htm" title="韩国VPN | 2月17日21.3M/S|免费SSR节点/Trojan节点/Shadowrocket节点/Singbox节点/Clash节点/V2ray节点免费节点订阅分享">韩国VPN | 2月17日21.3M/S|免费SSR节点/Trojan节点/Shadowrocket节点/Singbox节点/Clash节点/V2ray节点免费节点订阅分享</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-2-8-vpn-github.htm" title="韩国VPN | 2月8日18.9M/S|免费SSR节点/Trojan节点/Singbox节点/Shadowrocket节点/Clash节点/V2ray节点免费节点订阅分享">韩国VPN | 2月8日18.9M/S|免费SSR节点/Trojan节点/Singbox节点/Shadowrocket节点/Clash节点/V2ray节点免费节点订阅分享</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-1-22-free-node-subscribe-links.htm" title="韩国VPN | 1月22日18.5M/S|免费Trojan节点/Clash节点/Singbox节点/V2ray节点/SSR节点/Shadowrocket节点免费节点订阅分享">韩国VPN | 1月22日18.5M/S|免费Trojan节点/Clash节点/Singbox节点/V2ray节点/SSR节点/Shadowrocket节点免费节点订阅分享</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-1-27-free-node-subscribe-links.htm" title="韩国VPN | 1月27日22.4M/S|免费Trojan节点/Singbox节点/SSR节点/Shadowrocket节点/V2ray节点/Clash节点免费节点订阅分享">韩国VPN | 1月27日22.4M/S|免费Trojan节点/Singbox节点/SSR节点/Shadowrocket节点/V2ray节点/Clash节点免费节点订阅分享</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-3-7-free-node-subscribe-links.htm" title="韩国VPN | 3月7日18M/S|免费SSR节点/V2ray节点/Singbox节点/Clash节点/Trojan节点/Shadowrocket节点免费节点订阅分享">韩国VPN | 3月7日18M/S|免费SSR节点/V2ray节点/Singbox节点/Clash节点/Trojan节点/Shadowrocket节点免费节点订阅分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-3-11-vpn-node.htm" title="韩国VPN | 3月11日21.5M/S|免费Trojan节点/V2ray节点/Singbox节点/Shadowrocket节点/Clash节点/SSR节点免费节点订阅分享">韩国VPN | 3月11日21.5M/S|免费Trojan节点/V2ray节点/Singbox节点/Shadowrocket节点/Clash节点/SSR节点免费节点订阅分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-3-4-vpn-node.htm" title="韩国VPN | 3月4日20M/S|免费Clash节点/SSR节点/Singbox节点/V2ray节点/Trojan节点/Shadowrocket节点免费节点订阅分享">韩国VPN | 3月4日20M/S|免费Clash节点/SSR节点/Singbox节点/V2ray节点/Trojan节点/Shadowrocket节点免费节点订阅分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-3-28-vpn-free.htm" title="韩国VPN | 3月28日23M/S|免费Singbox节点/SSR节点/Shadowrocket节点/Clash节点/Trojan节点/V2ray节点免费节点订阅分享">韩国VPN | 3月28日23M/S|免费Singbox节点/SSR节点/Shadowrocket节点/Clash节点/Trojan节点/V2ray节点免费节点订阅分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-3-27-node-share-links.htm" title="韩国VPN | 3月27日22.5M/S|免费SSR节点/Shadowrocket节点/Clash节点/Trojan节点/Singbox节点/V2ray节点免费节点订阅分享">韩国VPN | 3月27日22.5M/S|免费SSR节点/Shadowrocket节点/Clash节点/Trojan节点/Singbox节点/V2ray节点免费节点订阅分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-3-17-vpn-node.htm" title="韩国VPN | 3月17日22.1M/S|免费Trojan节点/Clash节点/V2ray节点/SSR节点/Singbox节点/Shadowrocket节点免费节点订阅分享">韩国VPN | 3月17日22.1M/S|免费Trojan节点/Clash节点/V2ray节点/SSR节点/Singbox节点/Shadowrocket节点免费节点订阅分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-3-26-top-vpn.htm" title="韩国VPN | 3月26日19.2M/S|免费SSR节点/Clash节点/Shadowrocket节点/Trojan节点/V2ray节点/Singbox节点免费节点订阅分享">韩国VPN | 3月26日19.2M/S|免费SSR节点/Clash节点/Shadowrocket节点/Trojan节点/V2ray节点/Singbox节点免费节点订阅分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-3-19-node-share-links.htm" title="韩国VPN | 3月19日18.5M/S|免费Clash节点/V2ray节点/Trojan节点/Singbox节点/SSR节点/Shadowrocket节点免费节点订阅分享">韩国VPN | 3月19日18.5M/S|免费Clash节点/V2ray节点/Trojan节点/Singbox节点/SSR节点/Shadowrocket节点免费节点订阅分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-3-10-free-vpn-node.htm" title="韩国VPN | 3月10日21.8M/S|免费V2ray节点/Shadowrocket节点/Clash节点/Trojan节点/SSR节点/Singbox节点免费节点订阅分享">韩国VPN | 3月10日21.8M/S|免费V2ray节点/Shadowrocket节点/Clash节点/Trojan节点/SSR节点/Singbox节点免费节点订阅分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-4-2-vpn-free.htm" title="韩国VPN | 4月2日20.8M/S|免费Trojan节点/Clash节点/V2ray节点/SSR节点/Shadowrocket节点/Singbox节点免费节点订阅分享">韩国VPN | 4月2日20.8M/S|免费Trojan节点/Clash节点/V2ray节点/SSR节点/Shadowrocket节点/Singbox节点免费节点订阅分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-3-29-vpn-proxy.htm" title="韩国VPN | 3月29日22.8M/S|免费Shadowrocket节点/Clash节点/Trojan节点/Singbox节点/SSR节点/V2ray节点免费节点订阅分享">韩国VPN | 3月29日22.8M/S|免费Shadowrocket节点/Clash节点/Trojan节点/Singbox节点/SSR节点/V2ray节点免费节点订阅分享</a></li>
                     </ul>
     </div>
 </div>
@@ -250,13 +249,10 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">7</span> <a href="/date/2026-03/" title="2026-03 归档">2026-03</a></h4>
+                <h4><span class="badge" style="float: right;">1</span> <a href="/date/2026-04/" title="2026-04 归档">2026-04</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2026-02/" title="2026-02 归档">2026-02</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">18</span> <a href="/date/2026-01/" title="2026-01 归档">2026-01</a></h4>
+                <h4><span class="badge" style="float: right;">26</span> <a href="/date/2026-03/" title="2026-03 归档">2026-03</a></h4>
             </li>
                     </ul>
     </div>
