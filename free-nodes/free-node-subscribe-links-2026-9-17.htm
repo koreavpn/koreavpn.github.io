@@ -292,44 +292,9 @@ systemctl </span><span><span class="hljs-built_in">enable</span></span><span> v2
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>如何给 Clash 或 Sing-box 添加本地广告屏蔽规则？</h5></div>
-    <div class="panel-body">
-        可导入公共广告域名列表（如 ads、trackers）并将其指向 `REJECT` 或 `DIRECT`（根据需求）；还可以使用 rule-provider 自动更新广告规则，并结合 hosts 或 DNS 层面进行联合拦截以提升屏蔽效果。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Potatso Lite 支持手动和二维码导入节点吗？</h5></div>
-    <div class="panel-body">
-        支持。用户可以手动添加节点信息，或者通过扫描节点二维码导入节点。虽然不支持自动订阅更新，但足够满足轻量用户对节点管理和分流的需求。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Shadowrocket 的分流规则如何支持视频加速？</h5></div>
-    <div class="panel-body">
-        通过分流规则，将流媒体域名匹配到高速节点，其他网站走普通节点。这样可以保证视频播放流畅，同时节约带宽资源，提高整体网络效率和体验。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Potatso Lite 是否可以手动管理多个节点？</h5></div>
-    <div class="panel-body">
-        支持。用户可以手动输入节点参数或扫描二维码导入节点，并可进行修改或删除。虽然不支持订阅自动更新，但足够满足轻量用户对节点管理和分流的基本需求。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Clash 的策略组如何提升分流效率？</h5></div>
-    <div class="panel-body">
-        策略组可以将多个节点或规则组合在一起，实现按条件自动选择最佳节点。通过策略组，用户无需手动切换节点即可根据延迟、地理位置或流量类型自动分流，提高网络效率。<hr />    </div>
-</div>
-<div class="panel panel-default">
     <div class="panel-heading"><h5>PassWall2 能运行在哪些设备上？</h5></div>
     <div class="panel-body">
         PassWall2 是基于 OpenWRT 的插件，只要路由器支持该固件，就能安装运行。常见型号如小米路由、斐讯、软路由都可以使用，通过 Web 界面操作，适合家庭网络使用场景。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Hiddify Next 是否兼容 Clash 或 V2Ray 配置文件？</h5></div>
-    <div class="panel-body">
-        Hiddify Next 支持部分 Clash 与 Xray 订阅格式，但建议使用其官方订阅格式以获得完整兼容。若订阅转换异常，可使用 Hiddify 提供的在线转换工具重新生成配置文件导入。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Matsuri 可以用于 Android 吗？</h5></div>
-    <div class="panel-body">
-        Matsuri 主要针对桌面平台开发，目前并未推出 Android 版本。但可使用其配置文件在兼容的客户端（如 Nekobox 或 Clash Android）中加载以获得类似体验。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>V2Ray 的 gRPC 模式适合哪些场景？</h5></div>
@@ -337,9 +302,44 @@ systemctl </span><span><span class="hljs-built_in">enable</span></span><span> v2
         gRPC 支持多路复用和长连接，适合高并发访问和移动网络场景。相比 TCP 或 WebSocket，它可以减少握手次数，降低延迟，同时提高连接稳定性和吞吐量，特别适合游戏或即时通讯。<hr />    </div>
 </div>
 <div class="panel panel-default">
+    <div class="panel-heading"><h5>Clash 的策略组如何提升分流效率？</h5></div>
+    <div class="panel-body">
+        策略组可以将多个节点或规则组合在一起，实现按条件自动选择最佳节点。通过策略组，用户无需手动切换节点即可根据延迟、地理位置或流量类型自动分流，提高网络效率。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Hiddify Next 是否兼容 Clash 或 V2Ray 配置文件？</h5></div>
+    <div class="panel-body">
+        Hiddify Next 支持部分 Clash 与 Xray 订阅格式，但建议使用其官方订阅格式以获得完整兼容。若订阅转换异常，可使用 Hiddify 提供的在线转换工具重新生成配置文件导入。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Potatso Lite 支持手动和二维码导入节点吗？</h5></div>
+    <div class="panel-body">
+        支持。用户可以手动添加节点信息，或者通过扫描节点二维码导入节点。虽然不支持自动订阅更新，但足够满足轻量用户对节点管理和分流的需求。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>如何给 Clash 或 Sing-box 添加本地广告屏蔽规则？</h5></div>
+    <div class="panel-body">
+        可导入公共广告域名列表（如 ads、trackers）并将其指向 `REJECT` 或 `DIRECT`（根据需求）；还可以使用 rule-provider 自动更新广告规则，并结合 hosts 或 DNS 层面进行联合拦截以提升屏蔽效果。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Potatso Lite 是否可以手动管理多个节点？</h5></div>
+    <div class="panel-body">
+        支持。用户可以手动输入节点参数或扫描二维码导入节点，并可进行修改或删除。虽然不支持订阅自动更新，但足够满足轻量用户对节点管理和分流的基本需求。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Matsuri 可以用于 Android 吗？</h5></div>
+    <div class="panel-body">
+        Matsuri 主要针对桌面平台开发，目前并未推出 Android 版本。但可使用其配置文件在兼容的客户端（如 Nekobox 或 Clash Android）中加载以获得类似体验。<hr />    </div>
+</div>
+<div class="panel panel-default">
     <div class="panel-heading"><h5>VLESS + XTLS 模式在移动网络下表现如何？</h5></div>
     <div class="panel-body">
-        XTLS 降低加密开销，减少握手次数，适合高延迟或不稳定的移动网络。结合策略组和多出口节点，可提升访问速度和连接稳定性，确保用户体验流畅。    </div>
+        XTLS 降低加密开销，减少握手次数，适合高延迟或不稳定的移动网络。结合策略组和多出口节点，可提升访问速度和连接稳定性，确保用户体验流畅。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Shadowrocket 的分流规则如何支持视频加速？</h5></div>
+    <div class="panel-body">
+        通过分流规则，将流媒体域名匹配到高速节点，其他网站走普通节点。这样可以保证视频播放流畅，同时节约带宽资源，提高整体网络效率和体验。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -387,16 +387,16 @@ systemctl </span><span><span class="hljs-built_in">enable</span></span><span> v2
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/share-vpn-2026-9-3.htm" title="韩国VPN | 9月3日18.4M/S|免费Clash节点/SSR节点/V2ray节点/Shadowrocket节点/Singbox节点/Trojan节点免费节点订阅分享">韩国VPN | 9月3日18.4M/S|免费Clash节点/SSR节点/V2ray节点/Shadowrocket节点/Singbox节点/Trojan节点免费节点订阅分享</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/free-vpn-2026-8-31.htm" title="韩国VPN | 8月31日23M/S|免费Shadowrocket节点/Trojan节点/Singbox节点/SSR节点/V2ray节点/Clash节点免费节点订阅分享">韩国VPN | 8月31日23M/S|免费Shadowrocket节点/Trojan节点/Singbox节点/SSR节点/V2ray节点/Clash节点免费节点订阅分享</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/vpn-github-2026-8-25.htm" title="韩国VPN | 8月25日21.9M/S|免费Trojan节点/Clash节点/Shadowrocket节点/Singbox节点/SSR节点/V2ray节点免费节点订阅分享">韩国VPN | 8月25日21.9M/S|免费Trojan节点/Clash节点/Shadowrocket节点/Singbox节点/SSR节点/V2ray节点免费节点订阅分享</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/mianfei-vpn-2026-8-13.htm" title="韩国VPN | 8月13日19.3M/S|免费Clash节点/Trojan节点/Shadowrocket节点/Singbox节点/SSR节点/V2ray节点免费节点订阅分享">韩国VPN | 8月13日19.3M/S|免费Clash节点/Trojan节点/Shadowrocket节点/Singbox节点/SSR节点/V2ray节点免费节点订阅分享</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-9-18-free-node-subscribe.htm" title="韩国VPN | 9月18日19.7M/S|免费V2ray节点/Shadowrocket节点/Trojan节点/Singbox节点/SSR节点/Clash节点免费节点订阅分享">韩国VPN | 9月18日19.7M/S|免费V2ray节点/Shadowrocket节点/Trojan节点/Singbox节点/SSR节点/Clash节点免费节点订阅分享</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-8-6-free-vpn-node.htm" title="韩国VPN | 8月6日18.8M/S|免费Shadowrocket节点/V2ray节点/Clash节点/SSR节点/Trojan节点/Singbox节点免费节点订阅分享">韩国VPN | 8月6日18.8M/S|免费Shadowrocket节点/V2ray节点/Clash节点/SSR节点/Trojan节点/Singbox节点免费节点订阅分享</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/top-vpn-2026-9-13.htm" title="韩国VPN | 9月13日21.7M/S|免费V2ray节点/Trojan节点/Singbox节点/SSR节点/Shadowrocket节点/Clash节点免费节点订阅分享">韩国VPN | 9月13日21.7M/S|免费V2ray节点/Trojan节点/Singbox节点/SSR节点/Shadowrocket节点/Clash节点免费节点订阅分享</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-node-subscribe-links-2026-9-21.htm" title="韩国VPN | 9月21日23M/S|免费V2ray节点/SSR节点/Trojan节点/Singbox节点/Clash节点/Shadowrocket节点免费节点订阅分享">韩国VPN | 9月21日23M/S|免费V2ray节点/SSR节点/Trojan节点/Singbox节点/Clash节点/Shadowrocket节点免费节点订阅分享</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-9-14-top-vpn-node.htm" title="韩国VPN | 9月14日18.8M/S|免费V2ray节点/SSR节点/Shadowrocket节点/Trojan节点/Singbox节点/Clash节点免费节点订阅分享">韩国VPN | 9月14日18.8M/S|免费V2ray节点/SSR节点/Shadowrocket节点/Trojan节点/Singbox节点/Clash节点免费节点订阅分享</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-9-24-free-node-subscribe.htm" title="韩国VPN | 9月24日18.3M/S|免费Shadowrocket节点/Clash节点/Singbox节点/Trojan节点/V2ray节点/SSR节点免费节点订阅分享">韩国VPN | 9月24日18.3M/S|免费Shadowrocket节点/Clash节点/Singbox节点/Trojan节点/V2ray节点/SSR节点免费节点订阅分享</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/mianfei-vpn-2026-9-5.htm" title="韩国VPN | 9月5日21.9M/S|免费Clash节点/Shadowrocket节点/SSR节点/V2ray节点/Singbox节点/Trojan节点免费节点订阅分享">韩国VPN | 9月5日21.9M/S|免费Clash节点/Shadowrocket节点/SSR节点/V2ray节点/Singbox节点/Trojan节点免费节点订阅分享</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-vpn-2026-8-29.htm" title="韩国VPN | 8月29日19.3M/S|免费SSR节点/Singbox节点/Clash节点/Trojan节点/V2ray节点/Shadowrocket节点免费节点订阅分享">韩国VPN | 8月29日19.3M/S|免费SSR节点/Singbox节点/Clash节点/Trojan节点/V2ray节点/Shadowrocket节点免费节点订阅分享</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-8-30-top-vpn-node.htm" title="韩国VPN | 8月30日18.8M/S|免费Clash节点/V2ray节点/SSR节点/Trojan节点/Shadowrocket节点/Singbox节点免费节点订阅分享">韩国VPN | 8月30日18.8M/S|免费Clash节点/V2ray节点/SSR节点/Trojan节点/Shadowrocket节点/Singbox节点免费节点订阅分享</a><hr /></li>
                         <li class="py-2"><a href="/free-nodes/vpn-github-2026-8-21.htm" title="韩国VPN | 8月21日19.1M/S|免费Trojan节点/V2ray节点/SSR节点/Shadowrocket节点/Singbox节点/Clash节点免费节点订阅分享">韩国VPN | 8月21日19.1M/S|免费Trojan节点/V2ray节点/SSR节点/Shadowrocket节点/Singbox节点/Clash节点免费节点订阅分享</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-9-8-free-node-subscribe.htm" title="韩国VPN | 9月8日20.6M/S|免费V2ray节点/SSR节点/Clash节点/Singbox节点/Shadowrocket节点/Trojan节点免费节点订阅分享">韩国VPN | 9月8日20.6M/S|免费V2ray节点/SSR节点/Clash节点/Singbox节点/Shadowrocket节点/Trojan节点免费节点订阅分享</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-9-6-free-node-subscribe.htm" title="韩国VPN | 9月6日21.1M/S|免费SSR节点/Clash节点/V2ray节点/Singbox节点/Trojan节点/Shadowrocket节点免费节点订阅分享">韩国VPN | 9月6日21.1M/S|免费SSR节点/Clash节点/V2ray节点/Singbox节点/Trojan节点/Shadowrocket节点免费节点订阅分享</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-9-4-vpn-proxy.htm" title="韩国VPN | 9月4日19.1M/S|免费Clash节点/SSR节点/Singbox节点/Trojan节点/Shadowrocket节点/V2ray节点免费节点订阅分享">韩国VPN | 9月4日19.1M/S|免费Clash节点/SSR节点/Singbox节点/Trojan节点/Shadowrocket节点/V2ray节点免费节点订阅分享</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-8-24-free-vpn-node.htm" title="韩国VPN | 8月24日18.3M/S|免费Clash节点/V2ray节点/Trojan节点/SSR节点/Singbox节点/Shadowrocket节点免费节点订阅分享">韩国VPN | 8月24日18.3M/S|免费Clash节点/V2ray节点/Trojan节点/SSR节点/Singbox节点/Shadowrocket节点免费节点订阅分享</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-8-8-free-vpn-node.htm" title="韩国VPN | 8月8日18.4M/S|免费SSR节点/Shadowrocket节点/Singbox节点/V2ray节点/Trojan节点/Clash节点免费节点订阅分享">韩国VPN | 8月8日18.4M/S|免费SSR节点/Shadowrocket节点/Singbox节点/V2ray节点/Trojan节点/Clash节点免费节点订阅分享</a><hr /></li>
                     </ul>
     </div>
 </div>
@@ -408,7 +408,7 @@ systemctl </span><span><span class="hljs-built_in">enable</span></span><span> v2
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">19</span> <a href="/date/2026-09/" title="2026-09 归档">2026-09</a></h4>
+                <h4><span class="badge" style="float: right;">26</span> <a href="/date/2026-09/" title="2026-09 归档">2026-09</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">26</span> <a href="/date/2026-08/" title="2026-08 归档">2026-08</a></h4>
