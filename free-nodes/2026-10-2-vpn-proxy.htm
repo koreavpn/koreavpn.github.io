@@ -393,6 +393,26 @@ A4：检查服务器状态，端口是否开放，重启服务，尝试切换节
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
+    <div class="panel-heading"><h5>Hysteria2 多路复用如何优化短连接性能？</h5></div>
+    <div class="panel-body">
+        多路复用允许多个短连接共享同一通道，减少握手延迟和资源消耗。适用于游戏、即时通讯等高频短连接场景，提高吞吐量和连接稳定性，优化整体网络体验。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>V2Ray QUIC 模式在高丢包网络中的优势？</h5></div>
+    <div class="panel-body">
+        QUIC 基于 UDP 协议，支持多路复用和零握手，可减少延迟和丢包。适合视频、游戏和即时通讯等高丢包环境，保证访问稳定性和速度，提高整体体验。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>WinXray 多策略组如何管理大量节点？</h5></div>
+    <div class="panel-body">
+        多策略组可将节点按地区、延迟或用途分类，并结合规则文件自动分流流量。这样可快速选择最优节点，提高访问速度和稳定性，同时优化节点管理和维护效率。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Sing-box 如何实现域名精确分流？</h5></div>
+    <div class="panel-body">
+        Sing-box 支持按域名匹配流量，将不同应用流量分配到指定节点。结合策略组使用，可自动选择最优节点，提高访问速度和网络稳定性，实现精确流量管理。<hr />    </div>
+</div>
+<div class="panel panel-default">
     <div class="panel-heading"><h5>Hiddify Next 用户流量配额如何设置？</h5></div>
     <div class="panel-body">
         管理员可为每个用户设置带宽和流量上限，超出限制可自动降速或阻止访问，保证服务器资源合理分配，避免单用户占用过多带宽，提高整体网络公平性和使用效率。<hr />    </div>
@@ -403,24 +423,9 @@ A4：检查服务器状态，端口是否开放，重启服务，尝试切换节
         根据网络封锁情况选择合适协议和混淆组合，例如 tls1.2_ticket_auth 模拟 HTTPS 流量。选择最佳组合可提高抗封锁能力和稳定性，保证节点长期可用。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>V2Ray QUIC 模式在高丢包网络中的优势？</h5></div>
+    <div class="panel-heading"><h5>Sing-box 支持哪些类型的分流规则？</h5></div>
     <div class="panel-body">
-        QUIC 基于 UDP 协议，支持多路复用和零握手，可减少延迟和丢包。适合视频、游戏和即时通讯等高丢包环境，保证访问稳定性和速度，提高整体体验。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Nekobox 是否支持自定义 DNS 解析？</h5></div>
-    <div class="panel-body">
-        支持。用户可以在配置中指定 DNS 服务器或启用 DoH/DoT 功能，确保域名解析安全和快速，避免本地 DNS 污染或被劫持。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Sing-box 如何实现域名精确分流？</h5></div>
-    <div class="panel-body">
-        Sing-box 支持按域名匹配流量，将不同应用流量分配到指定节点。结合策略组使用，可自动选择最优节点，提高访问速度和网络稳定性，实现精确流量管理。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>WinXray 多策略组如何管理大量节点？</h5></div>
-    <div class="panel-body">
-        多策略组可将节点按地区、延迟或用途分类，并结合规则文件自动分流流量。这样可快速选择最优节点，提高访问速度和稳定性，同时优化节点管理和维护效率。<hr />    </div>
+        Sing-box 支持域名、IP、端口、协议类型、用户标签等多种分流规则。结合策略组，可实现精细化流量管理，满足视频加速、广告屏蔽和游戏优化等多样化需求。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>VLESS + XTLS 模式在高并发下有什么优势？</h5></div>
@@ -428,19 +433,14 @@ A4：检查服务器状态，端口是否开放，重启服务，尝试切换节
         XTLS 模式减少握手次数和加密冗余，提高 CPU 利用率和吞吐量。在高并发场景下能保持连接稳定，适合游戏、流媒体和频繁请求的网络环境，提升整体性能。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Sing-box 支持哪些类型的分流规则？</h5></div>
-    <div class="panel-body">
-        Sing-box 支持域名、IP、端口、协议类型、用户标签等多种分流规则。结合策略组，可实现精细化流量管理，满足视频加速、广告屏蔽和游戏优化等多样化需求。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Hysteria2 多路复用如何优化短连接性能？</h5></div>
-    <div class="panel-body">
-        多路复用允许多个短连接共享同一通道，减少握手延迟和资源消耗。适用于游戏、即时通讯等高频短连接场景，提高吞吐量和连接稳定性，优化整体网络体验。<hr />    </div>
-</div>
-<div class="panel panel-default">
     <div class="panel-heading"><h5>Hiddify Next 如何导入订阅？</h5></div>
     <div class="panel-body">
-        打开 Hiddify Next，进入主页点击“添加订阅”，输入机场提供的链接后确认。应用会自动同步节点并分类显示，支持一键测速与规则模式切换。    </div>
+        打开 Hiddify Next，进入主页点击“添加订阅”，输入机场提供的链接后确认。应用会自动同步节点并分类显示，支持一键测速与规则模式切换。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Nekobox 是否支持自定义 DNS 解析？</h5></div>
+    <div class="panel-body">
+        支持。用户可以在配置中指定 DNS 服务器或启用 DoH/DoT 功能，确保域名解析安全和快速，避免本地 DNS 污染或被劫持。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -488,16 +488,16 @@ A4：检查服务器状态，端口是否开放，重启服务，尝试切换节
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2026-9-22-vpn-proxy.htm" title="韩国VPN | 9月22日20.4M/S|免费Shadowrocket节点/Clash节点/Trojan节点/V2ray节点/Singbox节点/SSR节点免费节点订阅分享">韩国VPN | 9月22日20.4M/S|免费Shadowrocket节点/Clash节点/Trojan节点/V2ray节点/Singbox节点/SSR节点免费节点订阅分享</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/free-node-subscribe-links-2026-10-3.htm" title="韩国VPN | 10月3日19M/S|免费Trojan节点/SSR节点/Singbox节点/Shadowrocket节点/V2ray节点/Clash节点免费节点订阅分享">韩国VPN | 10月3日19M/S|免费Trojan节点/SSR节点/Singbox节点/Shadowrocket节点/V2ray节点/Clash节点免费节点订阅分享</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-9-28-node-share.htm" title="韩国VPN | 9月28日21.9M/S|免费Shadowrocket节点/Trojan节点/SSR节点/Clash节点/V2ray节点/Singbox节点免费节点订阅分享">韩国VPN | 9月28日21.9M/S|免费Shadowrocket节点/Trojan节点/SSR节点/Clash节点/V2ray节点/Singbox节点免费节点订阅分享</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-9-30-vpn-free.htm" title="韩国VPN | 9月30日18.3M/S|免费SSR节点/V2ray节点/Trojan节点/Shadowrocket节点/Singbox节点/Clash节点免费节点订阅分享">韩国VPN | 9月30日18.3M/S|免费SSR节点/V2ray节点/Trojan节点/Shadowrocket节点/Singbox节点/Clash节点免费节点订阅分享</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/free-node-subscribe-links-2026-9-23.htm" title="韩国VPN | 9月23日22.9M/S|免费Clash节点/SSR节点/Shadowrocket节点/V2ray节点/Trojan节点/Singbox节点免费节点订阅分享">韩国VPN | 9月23日22.9M/S|免费Clash节点/SSR节点/Shadowrocket节点/V2ray节点/Trojan节点/Singbox节点免费节点订阅分享</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-10-2-vpn-proxy.htm" title="韩国VPN | 10月2日22.1M/S|免费Trojan节点/V2ray节点/Shadowrocket节点/Clash节点/SSR节点/Singbox节点免费节点订阅分享">韩国VPN | 10月2日22.1M/S|免费Trojan节点/V2ray节点/Shadowrocket节点/Clash节点/SSR节点/Singbox节点免费节点订阅分享</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/free-node-subscribe-links-2026-9-27.htm" title="韩国VPN | 9月27日22.2M/S|免费V2ray节点/Trojan节点/Shadowrocket节点/SSR节点/Clash节点/Singbox节点免费节点订阅分享">韩国VPN | 9月27日22.2M/S|免费V2ray节点/Trojan节点/Shadowrocket节点/SSR节点/Clash节点/Singbox节点免费节点订阅分享</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/share-vpn-2026-9-3.htm" title="韩国VPN | 9月3日18.4M/S|免费Clash节点/SSR节点/V2ray节点/Shadowrocket节点/Singbox节点/Trojan节点免费节点订阅分享">韩国VPN | 9月3日18.4M/S|免费Clash节点/SSR节点/V2ray节点/Shadowrocket节点/Singbox节点/Trojan节点免费节点订阅分享</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/free-vpn-2026-9-7.htm" title="韩国VPN | 9月7日18.1M/S|免费Clash节点/SSR节点/Shadowrocket节点/V2ray节点/Singbox节点/Trojan节点免费节点订阅分享">韩国VPN | 9月7日18.1M/S|免费Clash节点/SSR节点/Shadowrocket节点/V2ray节点/Singbox节点/Trojan节点免费节点订阅分享</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/node-share-links-2026-10-1.htm" title="韩国VPN | 10月1日18.6M/S|免费Clash节点/SSR节点/Trojan节点/Singbox节点/Shadowrocket节点/V2ray节点免费节点订阅分享">韩国VPN | 10月1日18.6M/S|免费Clash节点/SSR节点/Trojan节点/Singbox节点/Shadowrocket节点/V2ray节点免费节点订阅分享</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-10-8-top-vpn-node.htm" title="韩国VPN | 10月8日22.9M/S|免费Clash节点/SSR节点/Shadowrocket节点/V2ray节点/Singbox节点/Trojan节点免费节点订阅分享">韩国VPN | 10月8日22.9M/S|免费Clash节点/SSR节点/Shadowrocket节点/V2ray节点/Singbox节点/Trojan节点免费节点订阅分享</a><hr /></li>
                         <li class="py-2"><a href="/free-nodes/2026-9-8-free-node-subscribe.htm" title="韩国VPN | 9月8日20.6M/S|免费V2ray节点/SSR节点/Clash节点/Singbox节点/Shadowrocket节点/Trojan节点免费节点订阅分享">韩国VPN | 9月8日20.6M/S|免费V2ray节点/SSR节点/Clash节点/Singbox节点/Shadowrocket节点/Trojan节点免费节点订阅分享</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/mianfei-vpn-2026-10-5.htm" title="韩国VPN | 10月5日19.9M/S|免费Shadowrocket节点/Trojan节点/Singbox节点/SSR节点/V2ray节点/Clash节点免费节点订阅分享">韩国VPN | 10月5日19.9M/S|免费Shadowrocket节点/Trojan节点/Singbox节点/SSR节点/V2ray节点/Clash节点免费节点订阅分享</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-node-subscribe-links-2026-9-23.htm" title="韩国VPN | 9月23日22.9M/S|免费Clash节点/SSR节点/Shadowrocket节点/V2ray节点/Trojan节点/Singbox节点免费节点订阅分享">韩国VPN | 9月23日22.9M/S|免费Clash节点/SSR节点/Shadowrocket节点/V2ray节点/Trojan节点/Singbox节点免费节点订阅分享</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/share-vpn-2026-9-9.htm" title="韩国VPN | 9月9日20.8M/S|免费V2ray节点/Trojan节点/Clash节点/Singbox节点/Shadowrocket节点/SSR节点免费节点订阅分享">韩国VPN | 9月9日20.8M/S|免费V2ray节点/Trojan节点/Clash节点/Singbox节点/Shadowrocket节点/SSR节点免费节点订阅分享</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/vpn-github-2026-9-15.htm" title="韩国VPN | 9月15日22.8M/S|免费SSR节点/Singbox节点/Trojan节点/V2ray节点/Shadowrocket节点/Clash节点免费节点订阅分享">韩国VPN | 9月15日22.8M/S|免费SSR节点/Singbox节点/Trojan节点/V2ray节点/Shadowrocket节点/Clash节点免费节点订阅分享</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-10-6-node-share.htm" title="韩国VPN | 10月6日20.9M/S|免费Singbox节点/V2ray节点/Trojan节点/Shadowrocket节点/Clash节点/SSR节点免费节点订阅分享">韩国VPN | 10月6日20.9M/S|免费Singbox节点/V2ray节点/Trojan节点/Shadowrocket节点/Clash节点/SSR节点免费节点订阅分享</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-9-16-node-share.htm" title="韩国VPN | 9月16日20.5M/S|免费SSR节点/Shadowrocket节点/Trojan节点/Singbox节点/V2ray节点/Clash节点免费节点订阅分享">韩国VPN | 9月16日20.5M/S|免费SSR节点/Shadowrocket节点/Trojan节点/Singbox节点/V2ray节点/Clash节点免费节点订阅分享</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-10-2-vpn-proxy.htm" title="韩国VPN | 10月2日22.1M/S|免费Trojan节点/V2ray节点/Shadowrocket节点/Clash节点/SSR节点/Singbox节点免费节点订阅分享">韩国VPN | 10月2日22.1M/S|免费Trojan节点/V2ray节点/Shadowrocket节点/Clash节点/SSR节点/Singbox节点免费节点订阅分享</a><hr /></li>
                     </ul>
     </div>
 </div>
@@ -509,7 +509,7 @@ A4：检查服务器状态，端口是否开放，重启服务，尝试切换节
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2026-10/" title="2026-10 归档">2026-10</a></h4>
+                <h4><span class="badge" style="float: right;">10</span> <a href="/date/2026-10/" title="2026-10 归档">2026-10</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">29</span> <a href="/date/2026-09/" title="2026-09 归档">2026-09</a></h4>
